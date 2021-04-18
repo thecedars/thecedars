@@ -1,0 +1,337 @@
+/* --------------------------------------------------------------
+
+ Hartija Css Print  Framework
+   * Version:   0.8 (2008-03-10)
+
+	 -------------------------------------------------------------- */
+
+@page {
+  margin: 0.5in;
+  margin-left: 0;
+}
+
+@media screen {
+  #wpbody-content {
+    padding-top: 1rem;
+  }
+
+  #wpbody-content .page {
+    display: none;
+  }
+}
+
+@media print {
+  html {
+    padding-top: 0 !important;
+    font-size: 10px;
+  }
+
+  body,
+  #wpbody-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    word-spacing: 1.1pt;
+    letter-spacing: 0.2pt;
+    font-family: Garamond, "Times New Roman", serif;
+    color: #000;
+    background: none;
+    font-size: 12pt;
+  }
+
+  .button {
+    display: none !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+
+  /*Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  h1 {
+    font-size: 19pt;
+  }
+
+  h2 {
+    font-size: 17pt;
+  }
+
+  h3 {
+    font-size: 15pt;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 12pt;
+  }
+
+  code {
+    font: 10pt Courier, monospace;
+  }
+
+  blockquote {
+    margin: 1.3rem;
+    padding: 1rem;
+    font-size: 10pt;
+  }
+
+  hr {
+    background-color: #ccc;
+  }
+
+  /* Images */
+  a img {
+    border: none;
+  }
+
+  /* Links */
+  a[href^="http://"]
+  {
+    color: #000;
+  }
+
+  /* Table */
+  table {
+    margin: 1px;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    border-bottom: 1px solid #333;
+    font-weight: bold;
+  }
+
+  td {
+    border-bottom: 1px solid #333;
+  }
+
+  th,
+  td {
+    padding: 4px 10px 4px 0;
+  }
+
+  tfoot {
+    font-style: italic;
+  }
+
+  caption {
+    background: #fff;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  table.no-underline th,
+  table.no-underline td {
+    border-bottom: 0;
+  }
+
+  .page,
+  .page-break {
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page.no-break {
+    page-break-after: auto;
+  }
+
+  .page:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    clear: both;
+  }
+
+  .hide-on-print {
+    display: none;
+  }
+
+  .hide-on-screen {
+    display: block;
+  }
+
+  .has-email {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    border: solid 2px #fff;
+    background: green;
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 100rem;
+  }
+
+  #wpfooter,
+  #adminmenumain {
+    display: none;
+  }
+
+  #wpcontent {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page {
+    font-size: 0.8rem;
+    padding-left: 5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul:after {
+    content: "";
+    clear: both;
+    width: 100%;
+    height: 0;
+    display: block;
+  }
+
+  ul li {
+    float: left;
+    width: 33.33%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
+
+  ul li:nth-child(3n + 1) {
+    clear: both;
+  }
+
+  .column {
+    float: left;
+    font-size: 1rem;
+    width: 33.3%;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .directory-print-list table {
+    font-size: 1.2rem;
+  }
+
+  table td {
+    border: 0;
+  }
+
+  table tr {
+    border: 0;
+  }
+
+  .number {
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .dues-checklist tr:nth-child(odd),
+  .directory-print-list tr:nth-child(odd) {
+    background-color: #ddd;
+  }
+
+  .street,
+  .email,
+  .phone {
+    white-space: nowrap;
+  }
+
+  .email,
+  .phone {
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .last {
+    padding-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .last {
+    width: 72px;
+    font-weight: 700;
+  }
+
+  .listing {
+    width: 150px;
+  }
+
+  .children {
+    width: 118px;
+    font-size: 0.8rem;
+  }
+
+  .street {
+    width: 100px;
+  }
+
+  .email,
+  .phone {
+    width: auto;
+  }
+
+  .email-text {
+    font-size: 0.8rem;
+  }
+
+  #wpbody-content {
+    padding-bottom: 0;
+    float: none;
+  }
+
+  .directory-print-street .street {
+    width: 23px;
+  }
+
+  .directory-print-street .street,
+  .directory-print-street .last {
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .directory-print-street .last {
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .directory-print-street table:nth-child(even) tr {
+    background: rgb(241, 241, 241);
+  }
+}
