@@ -7,13 +7,15 @@ import ApolloProvider from "./Apollo";
 import AppProvider from "./Context";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <ScrollToTop />
-    <ApolloProvider>
-      <AppProvider>
-        <App />
-      </AppProvider>
-    </ApolloProvider>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <ScrollToTop />
+      <ApolloProvider>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </ApolloProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById("root")
 );

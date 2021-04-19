@@ -1,28 +1,34 @@
-import React, { memo } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNode } from "../node";
+import { useAppContext } from "../Context";
 
-const PreloadWrap = memo(function ({ uri, children }) {
-  useNode({ uri });
+function PreloadWrap({ uri, children }) {
+  const { addPreloadUri } = useAppContext();
+
+  useEffect(() => {
+    addPreloadUri(uri);
+  }, [uri, addPreloadUri]);
+
   return children;
-});
+}
 
 export const Anchor = (existing) => {
   const props = { ...existing };
 
   let origin = null;
 
-  try {
-    ({ origin } = new URL(props.href));
-  } catch (error) {
+  if (props.href) {
     if (props.href.indexOf("/") === 0) {
       origin = process.env.REACT_APP_DOMAIN;
       props.href = origin + props.href;
+    } else {
+      ({ origin } = new URL(props.href));
     }
   }
 
   if (origin.indexOf(process.env.REACT_APP_DOMAIN) === 0) {
     const to = props.href.replace(origin, "");
+
     return (
       <PreloadWrap uri={to}>
         <Link {...{ to }} {...props} href={null} />
