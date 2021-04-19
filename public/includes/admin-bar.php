@@ -14,7 +14,7 @@ function cedars_remove_admin_bar_bump() {
 	remove_action( 'wp_head', '_admin_bar_bump_cb' );
 }
 
-add_action( 'get_header', 'cedars_remove_admin_bar_bump' );
+add_action( 'wp_head', 'cedars_remove_admin_bar_bump', 5 );
 
 /**
  * Adds the same bumpout for the admin bar, but as padding for the header.
