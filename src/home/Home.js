@@ -29,11 +29,11 @@ export function Home() {
             <PostContent className="mid-gray fw7">{node.content}</PostContent>
 
             <div className="mt4 flex items-center">
-              <Button className="mr3 nowrap" to={acf.byLaws}>
+              <Button className="mr3 nowrap" href={acf.byLaws}>
                 By-Laws
               </Button>
 
-              <Button inverted to={acf.covenants}>
+              <Button inverted href={acf.covenants}>
                 Covenants
               </Button>
             </div>
