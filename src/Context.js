@@ -1,12 +1,6 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useRef,
-  useCallback,
-} from "react";
-import { Preloader } from "./node";
+import React, { createContext, useContext, useState, useRef } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import { Preloader } from "./node";
 
 const AppContext = createContext({});
 export const useAppContext = () => useContext(AppContext);
@@ -14,19 +8,9 @@ export const useAppContext = () => useContext(AppContext);
 export function AppProvider({ children }) {
   const [viewerId, setViewerId] = useState(0);
   const [capabilities, setCapabilities] = useState();
-  const [preloadUri, setPreloadUri] = useState([]);
   const primaryData = useRef({});
   const search = useRef({});
-
-  const addPreloadUri = useCallback((_uri) => {
-    setPreloadUri((_p) => {
-      if (!_p.includes(_uri)) {
-        return [..._p, _uri];
-      }
-
-      return _p;
-    });
-  }, []);
+  const preloader = useRef({});
 
   return (
     <HelmetProvider>
@@ -38,14 +22,11 @@ export function AppProvider({ children }) {
           viewerId,
           setViewerId,
           primaryData,
-          addPreloadUri,
+          preloader,
         }}
       >
         {children}
-
-        {preloadUri.map((uri) => (
-          <Preloader key={`preloader-${uri}`} {...{ uri }} />
-        ))}
+        <Preloader />
       </AppContext.Provider>
     </HelmetProvider>
   );

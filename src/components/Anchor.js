@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../Context";
 
 function PreloadWrap({ uri, children }) {
-  const { addPreloadUri } = useAppContext();
+  const { preloader } = useAppContext();
 
   useEffect(() => {
-    addPreloadUri(uri);
-  }, [uri, addPreloadUri]);
+    if (preloader.current.addUrl) {
+      preloader.current.addUrl(uri);
+    }
+  }, [uri, preloader]);
 
   return children;
 }
