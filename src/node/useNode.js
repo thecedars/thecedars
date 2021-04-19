@@ -136,6 +136,9 @@ export const FragmentPage = `
     seo {
       ${LiteralSeo}
     }
+    template {
+      templateName
+    }
     featuredImage {
       node {
         id

@@ -25,6 +25,10 @@ function cedars_fields_default( $fields ) {
 			'type'        => 'String',
 			'description' => __( 'Form submitter\'s phone', 'cedars' ),
 		),
+		'inquiry'    => array(
+			'type'        => 'String',
+			'description' => __( 'Form submitter\'s inquiry', 'cedars' ),
+		),
 		'message'  => array(
 			'type'        => 'String',
 			'description' => __( 'Form submitter\'s message', 'cedars' ),

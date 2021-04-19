@@ -7,6 +7,7 @@ import Recaptcha from "./Recaptcha";
 import Textarea from "./Textarea";
 import useForm from "./useForm";
 import Valid from "./Valid";
+import Select from "./Select";
 
 const FormMutation = gql`
   mutation FormMutation($input: DefaultFormMutationInput!) {
@@ -39,18 +40,29 @@ export function Form({ className }) {
             valid={Valid.NotEmptyString}
           />
         </Field>
-        <Field id="email" label="Email" required>
-          <Input
-            ref={fields}
-            type="email"
-            errorMessage="Must be an email."
-            valid={Valid.Email}
-          >
-            <Recaptcha {...{ token }} />
-          </Input>
-        </Field>
-        <Field id="phone" label="Phone">
-          <Input ref={fields} type="tel" />
+        <div className="flex-l">
+          <Field id="email" label="Email" required className="w-50-l pr2-l">
+            <Input
+              ref={fields}
+              type="email"
+              errorMessage="Must be an email."
+              valid={Valid.Email}
+            >
+              <Recaptcha {...{ token }} />
+            </Input>
+          </Field>
+          <Field id="phone" label="Phone" className="w-50-l pl2-l">
+            <Input ref={fields} type="tel" />
+          </Field>
+        </div>
+        <Field id="inquiry" label="Nature of Inquiry">
+          <Select ref={fields} type="select">
+            <option value="General">General Inquiry</option>
+            <option value="Title Company">Title Company</option>
+            <option value="Directory Update">
+              Update your directory information
+            </option>
+          </Select>
         </Field>
         <Field id="message" label="Message" required>
           <Textarea
