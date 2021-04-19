@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Anchor from "./Anchor";
 import Loading from "./Loading";
 
 const ButtonClasses =
@@ -42,9 +42,9 @@ function ButtonRender({
 
   if (to) {
     return (
-      <Link ref={forwardedRef} to={to} className={classNames} {...props}>
+      <Anchor ref={forwardedRef} href={to} {...{ className }} {...props}>
         {children}
-      </Link>
+      </Anchor>
     );
   }
 

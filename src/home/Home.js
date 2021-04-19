@@ -3,10 +3,16 @@ import { PostContent, useNode, Seo } from "../node";
 import { PageWidth, Button } from "../components";
 import { useSettings } from "../hooks";
 import QuickLinks, { QuickLinksTitle, QuickLinksText } from "./QuickLinks";
+import { useAppContext } from "../Context";
+import { ReactComponent as Trash } from "./trash.svg";
+import { ReactComponent as Dollar } from "./dollar.svg";
+import { ReactComponent as Cal } from "./cal.svg";
 
 export function Home() {
   const { description, title } = useSettings();
   const { node } = useNode({ mainQuery: true });
+  const { primaryData } = useAppContext();
+  const acf = primaryData.current.advancedCustomFields || {};
 
   const { src, alt, srcSet, sizes } = node.featuredImage?.node || {};
 
@@ -23,9 +29,13 @@ export function Home() {
             <PostContent className="mid-gray fw7">{node.content}</PostContent>
 
             <div className="mt4 flex items-center">
-              <Button className="mr3 nowrap">By-Laws</Button>
+              <Button className="mr3 nowrap" to={acf.byLaws}>
+                By-Laws
+              </Button>
 
-              <Button inverted>Covenants</Button>
+              <Button inverted to={acf.covenants}>
+                Covenants
+              </Button>
             </div>
           </div>
 
@@ -43,22 +53,28 @@ export function Home() {
       <div className="br4 bg-secondary pa4 overflow-hidden light-gray mv5">
         <div className="flex-l items-center-l nl3 nr3 nt3 nb3">
           <div className="w-third-l pa3">
-            <QuickLinks>
-              <QuickLinksTitle>Budget</QuickLinksTitle>
-              <QuickLinksText>lorum ipsum</QuickLinksText>
-            </QuickLinks>
+            {acf.budget?.text && (
+              <QuickLinks href={acf.budget.link} icon={Dollar}>
+                <QuickLinksTitle>Budget</QuickLinksTitle>
+                <QuickLinksText>{acf.budget.text}</QuickLinksText>
+              </QuickLinks>
+            )}
           </div>
           <div className="w-third-l pa3">
-            <QuickLinks>
-              <QuickLinksTitle>Garage Sale</QuickLinksTitle>
-              <QuickLinksText>May 14-15</QuickLinksText>
-            </QuickLinks>
+            {acf.garageSale?.text && (
+              <QuickLinks href={acf.garageSale.link} icon={Cal}>
+                <QuickLinksTitle>Garage Sale</QuickLinksTitle>
+                <QuickLinksText>{acf.garageSale.text}</QuickLinksText>
+              </QuickLinks>
+            )}
           </div>
           <div className="w-third-l pa3">
-            <QuickLinks>
-              <QuickLinksTitle>Trash Pickup</QuickLinksTitle>
-              <QuickLinksText>lorum ipsum</QuickLinksText>
-            </QuickLinks>
+            {acf.trash?.text && (
+              <QuickLinks href={acf.trash.link} icon={Trash}>
+                <QuickLinksTitle>Trash Pickup</QuickLinksTitle>
+                <QuickLinksText>{acf.trash.text}</QuickLinksText>
+              </QuickLinks>
+            )}
           </div>
         </div>
       </div>

@@ -209,6 +209,7 @@ const UriQuery = gql`
       ...ContentTypeFragment
       ...UserArchiveFragment
     }
+    advancedCustomFields(uri: $uri)
   }
   ${FragmentContentType}
   ${FragmentCategory}

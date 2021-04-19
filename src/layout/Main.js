@@ -10,8 +10,8 @@ export function Main({ children }) {
     );
   } else {
     return (
-      <div className="main lh-copy relative z-1 flex-auto">
-        <div className="mw7 br3 pa4 mv3 center bg-white">{children}</div>
+      <div className="main lh-copy relative z-1 flex-auto flex items-center justify-center">
+        <div className="w-100 mw7 br3 pa4 mv3 center bg-white shadow-1">{children}</div>
       </div>
     );
   }

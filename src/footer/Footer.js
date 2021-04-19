@@ -7,7 +7,7 @@ export function Footer() {
 
   return (
     <footer id="footer">
-      <div className="f7 white bg-mid-gray pv3">
+      <div className="f7 primary pv3">
         <PageWidth>
           <div className="flex items-center justify-center">
             <div>
