@@ -6,29 +6,16 @@
  */
 
 /**
- * Dequeue block library as we're including it in the public folder for development.
+ * Enqueue the block library.
  *
  * @return void
  */
-function cedars_remove_block_library() {
-	wp_dequeue_style( 'wp-block-library' );
-	wp_dequeue_style( 'wp-block-library-theme' );
-
-	if ( function_exists( 'is_woocommerce' ) ) {
-		wp_dequeue_style( 'wc-block-style' );
-		wp_dequeue_style( 'woocommerce-layout' );
-		wp_dequeue_style( 'woocommerce-general' );
-		wp_dequeue_style( 'woocommerce-smallscreen' );
-		wp_dequeue_script( 'wc-cart-fragments' );
-		wp_dequeue_script( 'woocommerce' );
-		wp_dequeue_script( 'wc-add-to-cart' );
-
-		wp_deregister_script( 'js-cookie' );
-		wp_dequeue_script( 'js-cookie' );
-	}
+function cedars_block_library() {
+	wp_enqueue_style( 'wp-block-library' );
+	wp_enqueue_style( 'wp-block-library-theme' );
 }
 
-add_action( 'wp_enqueue_scripts', 'cedars_remove_block_library', PHP_INT_MAX );
+add_action( 'wp_enqueue_scripts', 'cedars_block_library' );
 
 /**
  * Removes the wp-embed script.

@@ -17,7 +17,7 @@ export function Header({ className }) {
         <Menu>
           <LogoContainer className="ma0 lh-title f3">
             <Anchor href="/" className="no-underline db primary fw7">
-              {logo ? <img src={logo} alt={title} className="mw4" /> : title}
+              {logo ? <img src={logo} alt={title} className="mw4 h2 h-auto-l db" /> : title}
             </Anchor>
           </LogoContainer>
         </Menu>

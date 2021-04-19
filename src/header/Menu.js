@@ -70,18 +70,18 @@ export function Menu({ children }) {
 
   return (
     <div>
-      <div className="db dn-l bg-near-black pa2 mb2" ref={menuBar}>
-        <div className="flex items-center">
-          <div className="pointer" onClick={() => setOpen(!open)}>
+      <div className="db dn-l bg-light-gray pa2 ma2 br3" ref={menuBar}>
+        <div className="flex items-center relative z-1">
+          <div className="pointer absolute z-2" onClick={() => setOpen(!open)}>
             <Bars />
           </div>
+
+          <div className="center h2">{children}</div>
         </div>
       </div>
       <PageWidth>
         <nav className="flex-l items-center-l justify-between-l w-100">
-          <div className="flex items-center justify-center db-l">
-            {children}
-          </div>
+          <div className="dn db-l">{children}</div>
           <div {...DrawerBackground}>
             <div {...MobileDrawer}>
               <div className="ma0">

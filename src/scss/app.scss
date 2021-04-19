@@ -1,6 +1,6 @@
 @import "~animate.css/animate.css";
 @import "~tachyons-sass/tachyons.scss";
-@import "./mixins";
+@import "mixins";
 
 $primary: $green !default;
 $secondary: $blue !default;
@@ -8,4 +8,5 @@ $secondary: $blue !default;
 @include tachyons-color-gen("primary", $primary);
 @include tachyons-color-gen("secondary", $secondary);
 
-@import "./loading";
+@import "loading";
+@import "post-content";
