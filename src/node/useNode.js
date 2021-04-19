@@ -136,6 +136,15 @@ export const FragmentPage = `
     seo {
       ${LiteralSeo}
     }
+    featuredImage {
+      node {
+        id
+        src: mediaItemUrl
+        alt: altText
+        srcSet
+        sizes
+      }
+    }
   }
 `;
 

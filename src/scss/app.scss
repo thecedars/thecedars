@@ -1,12 +1,22 @@
+$sans-serif: "Poppins", sans-serif;
+
+$green: #075c20;
+$dark-green: #05280F;
+
 @import "~animate.css/animate.css";
 @import "~tachyons-sass/tachyons.scss";
 @import "mixins";
 
-$primary: $green !default;
-$secondary: $blue !default;
+$primary: $green;
+$secondary: $dark-green;
 
 @include tachyons-color-gen("primary", $primary);
 @include tachyons-color-gen("secondary", $secondary);
 
 @import "loading";
 @import "post-content";
+
+@include tachyons-prop(".object-cover") {
+  object-fit: cover;
+  object-position: center;
+}

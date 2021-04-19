@@ -14,7 +14,7 @@ export function App() {
   const previewId = new URLSearchParams(search).get("p");
 
   return (
-    <div className="min-vh-100 flex items-stretch flex-column w-100 sans-serif near-black relative z-1">
+    <div className="min-vh-100 flex items-stretch flex-column w-100 sans-serif near-black relative z-1 bg-washed-green">
       <Header />
       <Main>
         <Switch>

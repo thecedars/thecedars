@@ -2,7 +2,10 @@ import React, { forwardRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
 
-const ButtonClasses = "bg-animate pointer no-underline br2 pv2 ph4 white bg-primary bn hover-bg-secondary";
+const ButtonClasses =
+  "bg-animate pointer no-underline br-pill pv3 ph5 bn white bg-primary hover-bg-secondary";
+const Inverted =
+  "bg-animate pointer no-underline br-pill pv3 ph5 bn primary bg-white hover-bg-near-white link hover-secondary";
 
 function ButtonRender({
   children,
@@ -73,6 +76,7 @@ export const Button = forwardRef(function (
     style = {},
     className: classNameProp,
     Loading: LoadingProp,
+    inverted,
     ...props
   },
   ref
@@ -80,7 +84,9 @@ export const Button = forwardRef(function (
   const [executing, setExecuting] = useState();
   const LoadingComponent = LoadingProp ? LoadingProp : Loading;
 
-  const className = `${ButtonClasses} ${classNameProp || ""}`;
+  const className = `${inverted ? Inverted : ButtonClasses} ${
+    classNameProp || ""
+  }`;
 
   const wrapperClassName =
     "items-start" + (className?.includes("db") ? " flex" : " inline-flex");

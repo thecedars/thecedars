@@ -70,7 +70,7 @@ export function Menu({ children }) {
 
   return (
     <div>
-      <div className="db dn-l bg-light-gray pa2 ma2 br3" ref={menuBar}>
+      <div className="db dn-l bg-white pa2 ma2 br4" ref={menuBar}>
         <div className="flex items-center relative z-1">
           <div className="pointer absolute z-2" onClick={() => setOpen(!open)}>
             <Bars />
