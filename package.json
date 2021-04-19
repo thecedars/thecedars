@@ -20,7 +20,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "wp": "node wp",
-    "postbuild": "node postbuild"
+    "postbuild": "node postbuild",
+    "bundle:theme": "cd build && dir-archiver --src . --dest ../cedars-theme.zip --exclude .DS_Store .stylelintrc.json .eslintrc .gitattributes .github .gitignore composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
+    "bundle:plugin": "cd plugins/the-directory && dir-archiver --src . --dest ../../dir.zip --exclude .DS_Store .stylelintrc.json .eslintrc .gitattributes .github .gitignore composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
+    "bundle": "yarn build:theme && yarn bundle:plugin"
   },
   "eslintConfig": {
     "extends": [
@@ -43,5 +46,8 @@
   "homepage": "/wp-content/themes/the-cedars",
   "resolutions": {
     "chokidar": "^3.4.0"
+  },
+  "devDependencies": {
+    "dir-archiver": "^1.2.0"
   }
 }
