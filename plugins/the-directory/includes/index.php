@@ -11,6 +11,9 @@ require_once __DIR__ . '/admin-menus.php';
 // Custom Post Type for Directory Entries.
 require_once __DIR__ . '/cpt.php';
 
+// Advanced Custom Fields.
+require_once __DIR__ . '/acf.php';
+
 // CSV Export.
 require_once __DIR__ . '/csv.php';
 
