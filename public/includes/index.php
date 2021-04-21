@@ -29,6 +29,9 @@ require_once __DIR__ . '/enqueue.php';
 // Routing.
 require_once __DIR__ . '/routing.php';
 
+// Ads.
+require_once __DIR__ . '/ads/index.php';
+
 // i18n.
 require_once __DIR__ . '/text-domain.php';
 

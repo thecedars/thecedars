@@ -1,8 +1,9 @@
 import React from "react";
+import QuickLinks, { QuickLinksTitle, QuickLinksText } from "./QuickLinks";
+import Ads from "./Ads";
 import { PostContent, useNode, Seo } from "../node";
 import { PageWidth, Button } from "../components";
 import { useSettings } from "../hooks";
-import QuickLinks, { QuickLinksTitle, QuickLinksText } from "./QuickLinks";
 import { useAppContext } from "../Context";
 import { ReactComponent as Trash } from "./trash.svg";
 import { ReactComponent as Dollar } from "./dollar.svg";
@@ -77,6 +78,10 @@ export function Home() {
             )}
           </div>
         </div>
+      </div>
+
+      <div className="mv5">
+        <Ads />
       </div>
     </PageWidth>
   );

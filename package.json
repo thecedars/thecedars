@@ -23,7 +23,7 @@
     "postbuild": "node postbuild",
     "bundle:theme": "cd build && dir-archiver --src . --dest ../the-cedars.zip --exclude .DS_Store .stylelintrc.json .eslintrc .gitattributes .github .gitignore composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
     "bundle:plugin": "cd plugins/the-directory && dir-archiver --src . --dest ../../the-directory.zip --exclude .DS_Store .stylelintrc.json .eslintrc .gitattributes .github .gitignore composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
-    "bundle": "yarn build:theme && yarn bundle:plugin"
+    "bundle": "yarn bundle:theme && yarn bundle:plugin"
   },
   "eslintConfig": {
     "extends": [

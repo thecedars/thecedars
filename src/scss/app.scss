@@ -22,6 +22,25 @@ $secondary: $dark-green;
   object-fit: cover;
   object-position: center;
 }
+
 .grecaptcha-badge {
   z-index: 2;
+}
+
+.ads {
+  figure {
+    margin: 0;
+    display: block;
+    padding: 1rem;
+    background-color: $white;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-height: 20rem;
+    object-fit: contain;
+    object-position: center;
+    width: auto;
+  }
 }

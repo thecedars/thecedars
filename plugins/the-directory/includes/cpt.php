@@ -77,74 +77,6 @@ function dirhoa_register_my_cpts() {
 	register_post_type( 'directory', $args );
 
 	/**
-	 * Post Type: Ads.
-	 */
-
-	$labels = array(
-		'name'                     => __( 'Ads', 'directory' ),
-		'singular_name'            => __( 'Ad', 'directory' ),
-		'menu_name'                => __( 'Ads', 'directory' ),
-		'all_items'                => __( 'All Ads', 'directory' ),
-		'add_new'                  => __( 'Add new', 'directory' ),
-		'add_new_item'             => __( 'Add new Ad', 'directory' ),
-		'edit_item'                => __( 'Edit Ad', 'directory' ),
-		'new_item'                 => __( 'New Ad', 'directory' ),
-		'view_item'                => __( 'View Ad', 'directory' ),
-		'view_items'               => __( 'View Ads', 'directory' ),
-		'search_items'             => __( 'Search Ads', 'directory' ),
-		'not_found'                => __( 'No Ads found', 'directory' ),
-		'not_found_in_trash'       => __( 'No Ads found in trash', 'directory' ),
-		'parent'                   => __( 'Parent Ad:', 'directory' ),
-		'featured_image'           => __( 'Featured image for this Ad', 'directory' ),
-		'set_featured_image'       => __( 'Set featured image for this Ad', 'directory' ),
-		'remove_featured_image'    => __( 'Remove featured image for this Ad', 'directory' ),
-		'use_featured_image'       => __( 'Use as featured image for this Ad', 'directory' ),
-		'archives'                 => __( 'Ad archives', 'directory' ),
-		'insert_into_item'         => __( 'Insert into Ad', 'directory' ),
-		'uploaded_to_this_item'    => __( 'Upload to this Ad', 'directory' ),
-		'filter_items_list'        => __( 'Filter Ads list', 'directory' ),
-		'items_list_navigation'    => __( 'Ads list navigation', 'directory' ),
-		'items_list'               => __( 'Ads list', 'directory' ),
-		'attributes'               => __( 'Ads attributes', 'directory' ),
-		'name_admin_bar'           => __( 'Ad', 'directory' ),
-		'item_published'           => __( 'Ad published', 'directory' ),
-		'item_published_privately' => __( 'Ad published privately.', 'directory' ),
-		'item_reverted_to_draft'   => __( 'Ad reverted to draft.', 'directory' ),
-		'item_scheduled'           => __( 'Ad scheduled', 'directory' ),
-		'item_updated'             => __( 'Ad updated.', 'directory' ),
-		'parent_item_colon'        => __( 'Parent Ad:', 'directory' ),
-	);
-
-	$args = array(
-		'label'                 => __( 'Ads', 'directory' ),
-		'labels'                => $labels,
-		'description'           => '',
-		'public'                => true,
-		'publicly_queryable'    => true,
-		'show_ui'               => true,
-		'show_in_rest'          => true,
-		'show_in_graphql'       => true,
-		'graphql_single_name'   => 'ad',
-		'graphql_plural_name'   => 'ads',
-		'rest_base'             => '',
-		'rest_controller_class' => 'WP_REST_Posts_Controller',
-		'has_archive'           => false,
-		'show_in_menu'          => true,
-		'show_in_nav_menus'     => true,
-		'delete_with_user'      => false,
-		'exclude_from_search'   => true,
-		'capability_type'       => 'post',
-		'map_meta_cap'          => true,
-		'hierarchical'          => false,
-		'rewrite'               => false,
-		'query_var'             => true,
-		'menu_icon'             => 'dashicons-id',
-		'supports'              => array( 'title', 'editor', 'thumbnail' ),
-	);
-
-	register_post_type( 'ad', $args );
-
-	/**
 	 * Post Type: Letters.
 	 */
 
@@ -212,3 +144,15 @@ function dirhoa_register_my_cpts() {
 }
 
 add_action( 'init', 'dirhoa_register_my_cpts' );
+
+/**
+ * Removes cpts from Yoast accessible Post Types.
+ *
+ * @param array $post_types Array of post types.
+ * @return array
+ */
+function dirhoa_remove_cpt_from_yoast( $post_types ) {
+	return array_diff( $post_types, array( 'directory', 'letter' ) );
+}
+
+add_filter( 'wpseo_accessible_post_types', 'dirhoa_remove_cpt_from_yoast' );
