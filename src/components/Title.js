@@ -8,7 +8,7 @@ export const Title = forwardRef((p, ref) => {
   return (
     <div className={`mb4 ${className}`} {...props}>
       <PageWidth>
-        <Wrap className="ma0 lh-solid pv4">
+        <Wrap className="ma0 lh-solid">
           <span {...{ ref }} className="f3 fw4 db">
             {children}
           </span>

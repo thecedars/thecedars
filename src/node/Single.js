@@ -15,8 +15,8 @@ export function Single(props) {
   return (
     <>
       <Title>{title || name}</Title>
-      <PageWidth className="mv4">
-        <PostContent className="mt4">{content}</PostContent>
+      <PageWidth>
+        <PostContent>{content}</PostContent>
 
         {template?.templateName === "Contact" && (
           <div className="mt4">

@@ -102,7 +102,6 @@ function cedars_guess_gql_type( $value ) {
 	$type = 'String';
 
 	switch ( true ) {
-		case is_numeric( $value ):
 		case is_int( $value ):
 			$type = 'Integer';
 			break;

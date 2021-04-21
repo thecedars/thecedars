@@ -75,7 +75,7 @@ export function Node(props) {
         {loading || title ? <Title>{title}</Title> : null}
 
         <Wrap>
-          <PageWidth className="mv4">
+          <PageWidth>
             {error ? (
               <ErrorRouting {...{ error }} />
             ) : edges?.length === 0 && !loading ? (

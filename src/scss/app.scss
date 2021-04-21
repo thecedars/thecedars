@@ -22,3 +22,6 @@ $secondary: $dark-green;
   object-fit: cover;
   object-position: center;
 }
+.grecaptcha-badge {
+  z-index: 2;
+}
