@@ -1,9 +1,6 @@
 import React from "react";
-import Menu from "./Menu";
-import { useLocation } from "react-router-dom";
 import { Anchor } from "../components";
 import { useSettings } from "../hooks";
-import { MenuProvider } from "./MenuContext";
 
 export function Logo({h1}) {
   const { title, logo } = useSettings();
