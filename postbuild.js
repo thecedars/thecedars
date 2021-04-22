@@ -21,6 +21,8 @@ fs.readFile("./build/index.php", "utf8", function (err, data) {
   });
 });
 
+spawn("rsync", ["-av", "./theme/", "./build/"], options);
+
 if (process.env.GO_DOCKER) {
   // Copy build and plugins to Docker env.
   spawn(
