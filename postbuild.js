@@ -1,49 +1,33 @@
-const { spawn, execSync } = require("child_process");
+const { execSync } = require("child_process");
 const fs = require("fs");
+const path = require("path");
 
-const options = {
-  cwd: process.cwd(),
-  detached: true,
-  stdio: "inherit",
-};
+fs.rename(
+  path.join("build", "index.html"),
+  path.join("build", "index.php"),
+  function () {
+    fs.readFile(path.join("build", "index.php"), "utf8", function (err, data) {
+      if (err) {
+        return console.log(err);
+      }
 
-execSync("mv ./build/index.html ./build/index.php", options);
+      let result = data.replace(`lang="en"`, "<?php language_attributes(); ?>");
 
-fs.readFile("./build/index.php", "utf8", function (err, data) {
-  if (err) {
-    return console.log(err);
+      result = result.replace(
+        new RegExp("/wp-content", "g"),
+        "<?php echo get_site_url( null ); ?>/wp-content"
+      );
+
+      fs.writeFile(
+        path.join("build", "index.php"),
+        result,
+        "utf8",
+        function (err) {
+          if (err) return console.log(err);
+        }
+      );
+    });
   }
+);
 
-  const result = data.replace(`lang="en"`, "<?php language_attributes(); ?>");
-
-  fs.writeFile("./build/index.php", result, "utf8", function (err) {
-    if (err) return console.log(err);
-  });
-});
-
-spawn("rsync", ["-av", "./theme/", "./build/"], options);
-
-if (process.env.GO_DOCKER) {
-  // Copy build and plugins to Docker env.
-  spawn(
-    "rsync",
-    [
-      "-av",
-      "--delete",
-      "./build/",
-      `${process.env.HOME}/docker/the-cedars/wp-content/themes/the-cedars/`,
-    ],
-    options
-  );
-
-  spawn(
-    "rsync",
-    [
-      "-av",
-      "--delete",
-      "./plugins/the-directory/",
-      `${process.env.HOME}/docker/the-cedars/wp-content/plugins/the-directory/`,
-    ],
-    options
-  );
-}
+execSync("rsync -av ./theme/ ./build/");
