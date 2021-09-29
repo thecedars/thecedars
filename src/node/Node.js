@@ -50,13 +50,13 @@ export function Node(props) {
   const seo = node.seo || {};
 
   if (!nodeTitle && loading && !seo.title) {
-    seo.title = process.env.REACT_APP_TITLE
-      ? `... - ${process.env.REACT_APP_TITLE}`
+    seo.title = 'The Cedars'
+      ? `... - The Cedars`
       : "...";
   }
 
-  if (process.env.REACT_APP_TITLE && title && !seo.title) {
-    seo.title = `${title} - ${process.env.REACT_APP_TITLE}`;
+  if ('The Cedars' && title && !seo.title) {
+    seo.title = `${title} - The Cedars`;
   }
 
   if (title && !seo.title) {

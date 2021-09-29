@@ -100,7 +100,7 @@ const authAfterware = new ApolloLink((operation, forward) => {
 });
 
 const link = new HttpLink({
-  uri: `${process.env.REACT_APP_DOMAIN}/graphql`,
+  uri: window.__WP.GQLURL,
 });
 
 export function ApolloProvider({ children }) {

@@ -21,14 +21,14 @@ export const Anchor = (existing) => {
 
   if (props.href) {
     if (props.href.indexOf("/") === 0) {
-      origin = process.env.REACT_APP_DOMAIN;
+      origin = window.__WP.SITE_URL;
       props.href = origin + props.href;
     } else {
       ({ origin } = new URL(props.href));
     }
   }
 
-  if (origin.indexOf(process.env.REACT_APP_DOMAIN) === 0) {
+  if (origin.indexOf(window.__WP.SITE_URL) === 0) {
     const to = props.href.replace(origin, "");
 
     return (

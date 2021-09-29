@@ -23,7 +23,7 @@ export function MenuItem({ setHover, hover, className, item, subMenu = {} }) {
   const SpanProps = { className: "db" };
 
   if (
-    process.env.REACT_APP_DOMAIN + pathname === item.url ||
+    window.__WP.SITE_URL + pathname === item.url ||
     hover === item.id
   ) {
     AnchorProps.className += " primary";

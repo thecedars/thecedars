@@ -39,6 +39,7 @@ add_action( 'wp_head', 'cedars_wp_js' );
 function cedars_js_window_filter( $wp ) {
 	$wp['GQLURL']    = cedars_get_gql_endpoint();
 	$wp['THEME_URL'] = get_stylesheet_directory_uri();
+	$wp['SITE_URL']  = get_site_url( null );
 	return $wp;
 }
 
