@@ -1,4 +1,4 @@
-const { spawn } = require("child_process");
+const { spawn, execSync } = require("child_process");
 const fs = require("fs");
 
 const options = {
@@ -7,7 +7,7 @@ const options = {
   stdio: "inherit",
 };
 
-spawn("mv", ["./build/index.html", "./build/index.php"], options);
+execSync("mv ./build/index.html ./build/index.php", options);
 
 fs.readFile("./build/index.php", "utf8", function (err, data) {
   if (err) {
