@@ -1,0 +1,8 @@
+{
+	"apiVersion": 2,
+	"name": "the-cedars/page-container",
+	"title": "Page Container",
+	"category": "design",
+	"description": "Wraps inner blocks with the page width classes. Useful for inside the Hero.",
+	"textdomain": "the-cedars"
+}

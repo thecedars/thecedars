@@ -1,0 +1,47 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://localhost/includes/form/form-default.json",
+	"type": "object",
+	"title": "Default Form",
+	"description": "The default form that is generated and used.",
+	"examples": [
+		{
+			"yourName": "John Dow",
+			"email": "webmaster@shaemarcus.com",
+			"phone": "(561) 781-9892",
+			"message": "Example comment."
+		}
+	],
+	"required": [ "yourName", "email" ],
+	"properties": {
+		"yourName": {
+			"$id": "#/properties/yourName",
+			"type": "string",
+			"title": "Your Name",
+			"description": "Name from submitter.",
+			"minLength": 1
+		},
+		"email": {
+			"$id": "#/properties/email",
+			"type": "string",
+			"format": "email",
+			"title": "Email",
+			"description": "Email address of form submitter."
+		},
+		"phone": {
+			"$id": "#/properties/phone",
+			"type": "string",
+			"title": "Phone",
+			"description": "Phone number of the form submitter.",
+			"pattern": "^[+]?[(]?[0-9]{3}[)]?[-\\s.]?[0-9]{3}[-\\s.]?[0-9]{4,6}$"
+		},
+		"message": {
+			"$id": "#/properties/message",
+			"type": "string",
+			"title": "Message",
+			"description": "Message from the form submitter.",
+			"minLength": 1
+		}
+	},
+	"additionalProperties": true
+}

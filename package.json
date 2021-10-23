@@ -1,53 +1,57 @@
 {
-  "name": "the-cedars",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.3.6",
-    "animate.css": "^4.1.1",
-    "graphql": "^15.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet-async": "^1.0.9",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "sass": "^1.32.0",
-    "tachyons-sass": "^4.9.5"
-  },
-  "scripts": {
-    "start": "BROWSER=none PORT=3000 CHOKIDAR_USEPOLLING=true FAST_REFRESH=false react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "wp": "node wp",
-    "postbuild": "node postbuild",
-    "bundle:theme": "cd build && dir-archiver --src . --dest ../the-cedars.zip --exclude .DS_Store .stylelintrc.json .eslintrc .gitattributes .github .gitignore composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
-    "bundle:plugin": "cd plugins/the-directory && dir-archiver --src . --dest ../../the-directory.zip --exclude .DS_Store .stylelintrc.json .eslintrc .gitattributes .github .gitignore composer.json composer.lock node_modules package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
-    "bundle": "yarn bundle:theme && yarn bundle:plugin"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "homepage": "/wp-content/themes/the-cedars",
-  "resolutions": {
-    "chokidar": "^3.4.0"
-  },
-  "devDependencies": {
-    "dir-archiver": "^1.2.0"
-  }
+	"name": "the-cedars",
+	"version": "1.0.0",
+	"description": "Shae Marcus Consulting Starter Theme.",
+	"author": "Shae Marcus Consulting",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Theme"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://repo.shaemarcus.com/shae-marcus-consulting/starter-theme.git"
+	},
+	"bugs": {
+		"url": "https://repo.shaemarcus.com/shae-marcus-consulting/starter-theme/-/issues"
+	},
+	"devDependencies": {
+		"@wordpress/prettier-config": "^1.0.5",
+		"@wordpress/scripts": "^12.1.0",
+		"archiver": "^5.3.0",
+		"glob": "^7.1.7",
+		"rtlcss": "^2.5.0"
+	},
+	"rtlcssConfig": {
+		"options": {
+			"autoRename": false,
+			"autoRenameStrict": false,
+			"blacklist": {},
+			"clean": true,
+			"greedy": false,
+			"processUrls": false,
+			"stringMap": []
+		},
+		"plugins": [],
+		"map": false
+	},
+	"scripts": {
+		"build": "wp-scripts build ./js/src/frontend.js ./js/blocks/blocks.js --output-path=./js/build",
+		"start": "wp-scripts start ./js/src/frontend.js ./js/blocks/blocks.js --output-path=./js/build",
+		"lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
+		"lint:js": "wp-scripts lint-js 'js/*.js'",
+		"bundle": "node _bundle.js"
+	},
+	"dependencies": {
+		"@wordpress/block-editor": "^6.1.10",
+		"@wordpress/blocks": "^9.1.5",
+		"@wordpress/element": "^3.1.1",
+		"@wordpress/i18n": "^4.1.1",
+		"ajv": "^8.6.3",
+		"ajv-formats": "^2.1.1",
+		"animate.css": "^4.1.1",
+		"sass": "^1.35.2",
+		"tachyons-sass": "^4.9.5"
+	},
+	"prettier": "@wordpress/prettier-config"
 }
