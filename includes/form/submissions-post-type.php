@@ -96,7 +96,7 @@ add_filter( 'manage_form_submission_posts_columns', 'cedars_set_custom_edit_colu
 function cedars_custom_column( $column, $post_id ) {
 	switch ( $column ) {
 		case 'name':
-			echo esc_html( get_post_meta( $post_id, 'firstName', true ) . ' ' . get_post_meta( $post_id, 'lastName', true ) );
+			echo esc_html( get_post_meta( $post_id, 'yourName', true ) );
 			break;
 
 		case 'email':
