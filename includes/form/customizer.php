@@ -12,7 +12,7 @@
  * @return void
  */
 function cedars_default_form_customize_register( $wp_customize ) {
-		$host         = isset( $_SERVER['SERVER_NAME'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) ) : 'shaemarcus.com';
+		$host         = isset( $_SERVER['SERVER_NAME'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) ) : 'the-cedars.org';
 		$default_from = 'wordpress@' . str_replace( 'www.', '', $host );
 
 		$name = 'default';

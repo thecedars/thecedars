@@ -136,7 +136,7 @@ function cedars_form_alert( $error, $input, $name ) {
 	if ( ! $error->has_errors() ) {
 		$to      = get_theme_mod( 'theme_form_' . $name . '_to', get_bloginfo( 'admin_email' ) );
 		$to      = apply_filters( 'cedars_sanitize_email_list', $to, $name );
-		$host    = isset( $_SERVER['SERVER_NAME'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) ) : 'shaemarcus.com';
+		$host    = isset( $_SERVER['SERVER_NAME'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_NAME'] ) ) : 'the-cedars.org';
 		$from    = get_theme_mod( 'theme_form_' . $name . '_from', 'wordpress@' . str_replace( 'www.', '', $host ) );
 		$subject = get_theme_mod( 'theme_form_' . $name . '_subject', __( 'WordPress Form Submission', 'the-cedars' ) );
 		$replyto = ! empty( $input['email'] ) ? $input['email'] : $from;
@@ -150,7 +150,6 @@ function cedars_form_alert( $error, $input, $name ) {
 				"Sender: $from",
 				'Content-type: text/html',
 				"Reply-to: $replyto",
-				'Bcc: shae@shaemarcus.com',
 			)
 		);
 

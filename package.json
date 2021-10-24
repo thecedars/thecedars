@@ -10,10 +10,10 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://repo.shaemarcus.com/shae-marcus-consulting/starter-theme.git"
+		"url": "git+https://github.com/jonshipman/the-cedars.git"
 	},
 	"bugs": {
-		"url": "https://repo.shaemarcus.com/shae-marcus-consulting/starter-theme/-/issues"
+		"url": "https://github.com/jonshipman/the-cedars/issues"
 	},
 	"devDependencies": {
 		"@wordpress/prettier-config": "^1.0.5",

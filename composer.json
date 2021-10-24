@@ -1,11 +1,11 @@
 {
-    "name": "shae-marcus-consulting/the-cedars",
+    "name": "the-cedars/theme",
     "type": "wordpress-theme",
     "keywords": [
         "WordPress",
         "Themes"
     ],
-    "homepage": "https://www.shaemarcus.com",
+    "homepage": "https://www.the-cedars.org",
     "license": "GPL-2.0-or-later",
     "require": {
         "php": ">=5.6",
