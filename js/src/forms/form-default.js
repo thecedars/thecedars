@@ -22,7 +22,7 @@ export default function FormLayout() {
 				<Field id="message" rows={ 10 } />
 			</div>
 
-			<div className="flex justify-end mt4">
+			<div className="flex justify-center mt4">
 				<Button onClick={ onSubmit } { ...{ loading } } form>
 					Send Message
 				</Button>
