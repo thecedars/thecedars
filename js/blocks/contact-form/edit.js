@@ -49,15 +49,11 @@ export default function ContactFormEdit( { attributes, setAttributes } ) {
 function FauxContactForm() {
 	return (
 		<div className="overflow-hidden">
-			<div>
-				<FauxField required label={ __( 'Name', 'the-cedars' ) } />
-			</div>
+			<FauxField required label={ __( 'Inquiry', 'the-cedars' ) } />
+			<FauxField required label={ __( 'Name', 'the-cedars' ) } />
 			<div className="flex-l nl2 nr2">
 				<div className="ph2 w-50-l">
-					<FauxField
-						required
-						label={ __( 'Email', 'the-cedars' ) }
-					/>
+					<FauxField required label={ __( 'Email', 'the-cedars' ) } />
 				</div>
 				<div className="ph2 w-50-l">
 					<FauxField label={ __( 'Phone', 'the-cedars' ) } />
