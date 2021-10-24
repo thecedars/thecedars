@@ -20,7 +20,9 @@ export default function NoticeBannerSave( { attributes: { margin } } ) {
 	return (
 		<div { ...useBlockProps.save() }>
 			<RawHTML>{ `[cedars-notice-banner${ atts }]` }</RawHTML>
-			<InnerBlocks.Content />
+			<div className="flex-l items-center-l nl3 nr3 nt3 nb3">
+				<InnerBlocks.Content />
+			</div>
 			<RawHTML>{ '[/cedars-notice-banner]' }</RawHTML>
 		</div>
 	);

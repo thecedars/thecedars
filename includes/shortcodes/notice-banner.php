@@ -20,9 +20,7 @@ function cedars_shortcode_notice_banner( $atts, $contents = '' ) {
 	?>
 
 	<div class="br4 bg-secondary pa4 overflow-hidden light-gray mv<?php echo esc_attr( $margin ); ?>">
-		<div class="flex-l items-center-l nl3 nr3 nt3 nb3">
-			<?php echo wp_kses_post( $contents ); ?>
-		</div>
+		<?php echo wp_kses_post( $contents ); ?>
 	</div>
 
 	<?php
