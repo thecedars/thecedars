@@ -18,6 +18,7 @@ function cedars_scripts() {
 
 	wp_enqueue_script( 'the-cedars-frontend' );
 	wp_enqueue_style( 'the-cedars-frontend' );
+	wp_enqueue_style( 'dashicons' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
