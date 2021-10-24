@@ -219,6 +219,8 @@ function cedars_add_js_data( $handle, $data ) {
 		$handle = 'the-cedars-frontend';
 	}
 
+	$data = apply_filters( 'cedars_js_data', $data );
+
 	wp_add_inline_script(
 		$handle,
 		sprintf(
