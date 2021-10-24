@@ -5,8 +5,8 @@
  * @package Cedars/Shortcodes
  */
 
-// Hero shortcode.
-require_once __DIR__ . '/hero.php';
+// Hero image shortcode.
+require_once __DIR__ . '/hero-image.php';
 
 // Contained shortcode.
 require_once __DIR__ . '/contained.php';

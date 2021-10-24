@@ -1,0 +1,21 @@
+{
+	"apiVersion": 2,
+	"name": "the-ceards/hero-image",
+	"title": "Hero Image",
+	"category": "widgets",
+	"description": "Side image with text. Image slides in.",
+	"textdomain": "the-ceards",
+	"attributes": {
+		"image": {
+			"type": "integer"
+		},
+		"margin": {
+			"type": "integer",
+			"default": 5
+		},
+		"title": {
+			"type": "string",
+			"default": "a piece of paradise"
+		}
+	}
+}

@@ -6,7 +6,7 @@ import { registerBlockType } from '@wordpress/blocks';
 /**
  * Import all the folders here that need to be blocks.
  */
-import * as hero from './hero';
+import * as hero from './hero-image';
 import * as pageContainer from './page-container';
 import * as contactForm from './contact-form';
 

@@ -1,6 +1,7 @@
 import save from './save';
 import edit from './edit';
 import metadata from './block.json';
+import { Dashicon } from '@wordpress/components';
 
 const { name } = metadata;
 
@@ -15,4 +16,5 @@ export const settings = {
 	...metadata,
 	edit,
 	save,
+	icon: <Dashicon icon="welcome-widgets-menus" className="primary" />,
 };

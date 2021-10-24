@@ -135,6 +135,12 @@ function cedars_title_open() {
 		$tag = 'div';
 	}
 
+	if ( is_front_page() ) {
+		ob_start();
+		wp_cache_set( 'title_ob', ob_get_level(), 'the-cedars' );
+		return;
+	}
+
 	wp_cache_set( 'title_tag', $tag, 'cedars' );
 
 	?>
@@ -161,6 +167,12 @@ function cedars_title_close() {
 	</div>
 
 	<?php
+
+	$ob = wp_cache_get( 'title_ob', 'the-cedars' );
+
+	if ( ob_get_level() === $ob ) {
+		ob_end_clean();
+	}
 }
 
 add_action( 'cedars_title_close', 'cedars_title_close' );
@@ -209,3 +221,26 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 endif;
 // @phpcs:enable
+
+/**
+ * Outputs the speaker thumbnail.
+ *
+ * @param integer $attachment_id The WP_Post ID.
+ * @param string  $size The WP Image size.
+ * @param array   $args Optional. The array of attributes.
+ */
+function cedars_the_image_src( $attachment_id, $size, $args = array() ) {
+	echo '<img ';
+
+	echo 'src="' . esc_attr( cedars_image_src( $attachment_id, $size ) ) . '" ';
+
+	foreach ( $args as $key => $value ) {
+		echo esc_attr( $key ) . '="' . esc_attr( $value ) . '" ';
+	}
+
+	if ( empty( $args['alt'] ) ) {
+		printf( 'alt="%s" ', esc_attr( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
+	}
+
+	echo '/>';
+}
