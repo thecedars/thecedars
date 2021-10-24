@@ -139,7 +139,7 @@ function cedars_title_open() {
 
 	<div class="title mb4">
 		<div class="<?php cedars_page_width(); ?>">
-			<?php printf( '<%s class="ma0 lh-solid pv4">', $tag ); // @phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php printf( '<%s class="ma0 lh-solid">', $tag ); // @phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<span class="f3 fw4 db">
 	<?php
 }

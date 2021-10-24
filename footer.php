@@ -11,6 +11,7 @@
 
 ?>
 
+	</div> <!-- #page-content-wrapper -->
 	</div> <!-- .main -->
 
 	<footer id="footer" class="tc"> <!-- #footer -->
