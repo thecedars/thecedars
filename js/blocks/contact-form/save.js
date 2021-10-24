@@ -9,12 +9,19 @@ import { RawHTML } from '@wordpress/element';
  * @param {Object} props Block props.
  * @param {Object} props.attributes Attribute state.
  * @param {Object} props.attributes.padding Padding around Element.
+ * @param {Object} props.attributes.defaultInquiry Selected inquiry on load.
  */
-export default function ContactFormSave( { attributes: { padding } } ) {
+export default function ContactFormSave( {
+	attributes: { padding, defaultInquiry },
+} ) {
 	let atts = '';
 
 	if ( padding ) {
 		atts += ` padding="${ padding }"`;
+	}
+
+	if ( defaultInquiry ) {
+		atts += ` inquiry="${ defaultInquiry }"`;
 	}
 
 	return (

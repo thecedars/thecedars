@@ -1,5 +1,10 @@
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, PanelRow, RangeControl } from '@wordpress/components';
+import {
+	PanelBody,
+	PanelRow,
+	RangeControl,
+	SelectControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSettings } from '../../src/hooks';
 
@@ -13,7 +18,7 @@ import { useSettings } from '../../src/hooks';
  * @param {Function} props.setAttributes Function to update attribute state.
  */
 export default function ContactFormEdit( { attributes, setAttributes } ) {
-	const { padding } = attributes;
+	const { padding, defaultInquiry } = attributes;
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls>
@@ -34,6 +39,27 @@ export default function ContactFormEdit( { attributes, setAttributes } ) {
 							step={ 1 }
 							min={ 0 }
 							max={ 6 }
+						/>
+					</PanelRow>
+					<PanelRow>
+						<SelectControl
+							label={ __( 'Default Inquiry', 'spotlight' ) }
+							value={ defaultInquiry || '' }
+							onChange={ ( v ) =>
+								setAttributes( {
+									...attributes,
+									defaultInquiry: v,
+								} )
+							}
+							options={ [
+								'',
+								'General',
+								'Title Company',
+								'Directory',
+							].map( ( i ) => ( {
+								value: i,
+								label: i,
+							} ) ) }
 						/>
 					</PanelRow>
 				</PanelBody>

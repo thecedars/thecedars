@@ -5,5 +5,8 @@
 	"category": "widgets",
 	"description": "Contact Form",
 	"textdomain": "the-cedars",
-	"attributes": { "padding": { "type": "integer", "default": 0 } }
+	"attributes": {
+		"padding": { "type": "integer", "default": 0 },
+		"defaultInquiry": { "type": "string" }
+	}
 }

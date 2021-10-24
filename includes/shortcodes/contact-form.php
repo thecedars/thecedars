@@ -13,6 +13,7 @@
  */
 function cedars_shortcode_contact_form( $atts ) {
 	$padding = ! empty( $atts['padding'] ) ? absint( $atts['padding'] ) : 0;
+	$inquiry = ! empty( $atts['inquiry'] ) ? $atts['inquiry'] : '';
 
 	ob_start();
 
@@ -23,7 +24,12 @@ function cedars_shortcode_contact_form( $atts ) {
 	?>
 
 	<div class="pa<?php echo $padding; ?>">
-		<div id="contact-form"></div>
+		<div id="contact-form"
+		<?php
+		if ( ! empty( $inquiry ) ) {
+			printf( 'data-inquiry="%s"', esc_attr( $inquiry ) ); }
+		?>
+		></div>
 	</div>
 
 	<?php

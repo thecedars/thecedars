@@ -7,7 +7,7 @@ const renderTarget = document.getElementById( 'contact-form' );
 if ( renderTarget ) {
 	render(
 		<StrictMode>
-			<Form>
+			<Form inquiry={ renderTarget.getAttribute( 'data-inquiry' ) }>
 				<DefaultFormLayout />
 			</Form>
 		</StrictMode>,

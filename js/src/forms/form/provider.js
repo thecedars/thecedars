@@ -12,14 +12,15 @@ import RecaptchaProvider, { useRecaptcha } from './recaptcha';
  * @param {Object} props JSX properties.
  * @param {Object} props.children JSX.
  * @param {string} props.formName Form name to use for submission.
+ * @param {string} props.inquiry Pre-selected inquiry.
  * @return {Object} JSX.
  */
-function FormProvider( { children, formName = 'default' } ) {
+function FormProvider( { children, formName = 'default', inquiry } ) {
 	const [ schema, setSchema ] = useState( { required: [], properties: {} } );
 	const [ errorMessages, setErrorMessages ] = useState( {} );
 	const [ loading, setLoading ] = useState();
 	const [ { error, success }, setStatus ] = useState( {} );
-	const [ form, setForm ] = useState( {} );
+	const [ form, setForm ] = useState( { inquiry } );
 	const { getToken, usesRecaptcha } = useRecaptcha();
 	const validate = useRef();
 	const emptyForm = useRef( {} );
@@ -60,8 +61,8 @@ function FormProvider( { children, formName = 'default' } ) {
 					}
 				}
 
-				emptyForm.current = { ...fields };
-				setForm( fields );
+				emptyForm.current = { ...fields, inquiry };
+				setForm( { ...fields, inquiry } );
 				setSchema( results.schema );
 				setErrorMessages( results.errorMessages );
 			} catch ( e ) {
@@ -70,7 +71,7 @@ function FormProvider( { children, formName = 'default' } ) {
 		};
 
 		_getSchema();
-	}, [ formName ] );
+	}, [ formName, inquiry ] );
 
 	/**
 	 * @typedef validityReport
