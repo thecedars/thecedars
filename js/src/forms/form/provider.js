@@ -114,7 +114,7 @@ function FormProvider( { children, formName = 'default' } ) {
 				if ( results ) {
 					setStatus( {
 						success: __(
-							'Thank you, someone from will contact you shortly.',
+							'Thank you, we have received your response..',
 							'the-cedars'
 						),
 					} );
