@@ -1,4 +1,3 @@
-import { Anchor } from '../components';
 import { useSettings } from '../hooks';
 
 export function Logo() {
@@ -8,7 +7,7 @@ export function Logo() {
 
 	return (
 		<LogoContainer className="ma0 lh-title f3">
-			<Anchor href={ siteUrl } className="no-underline db primary fw7">
+			<a href={ siteUrl } className="no-underline db primary fw7">
 				{ logo ? (
 					<img
 						src={ logo.medium }
@@ -18,7 +17,7 @@ export function Logo() {
 				) : (
 					title
 				) }
-			</Anchor>
+			</a>
 		</LogoContainer>
 	);
 }
