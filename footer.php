@@ -11,7 +11,9 @@
 
 ?>
 
-	</div> <!-- #page-content-wrapper -->
+	<?php if ( ! is_front_page() ) : ?>
+		</div> <!-- #page-content-wrapper -->
+	<?php endif; ?>
 	</div> <!-- .main -->
 
 	<footer id="footer" class="tc"> <!-- #footer -->

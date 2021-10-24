@@ -32,7 +32,17 @@
 		<?php cedars_add_js_data( null, array( 'headerMenu' => cedars_navigation( 'header-menu' ) ) ); ?>
 	</header><!-- #header -->
 
-	<div class="main lh-copy relative z-1 flex-auto flex items-center justify-center"><!-- .main -->
-		<div id="main-content"></div>
+	<?php if ( is_front_page() ) : ?>
 
-		<div id="page-content-wrapper" class="w-100 mw7 br3 pa4 mv3 center bg-white shadow-1">
+		<div class="main lh-copy relative z-1 flex-auto"><!-- .main -->
+			<div id="main-content"></div>
+
+	<?php else : ?>
+
+		<div class="main lh-copy relative z-1 flex-auto flex items-center justify-center"><!-- .main -->
+			<div id="main-content"></div>
+
+			<div id="page-content-wrapper" class="w-100 mw7 br3 pa4 mv3 center bg-white shadow-1">
+
+		<?php
+endif;
