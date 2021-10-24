@@ -1,10 +1,10 @@
 {
 	"apiVersion": 2,
-	"name": "the-ceards/hero-image",
+	"name": "the-cedars/hero-image",
 	"title": "Hero Image",
 	"category": "widgets",
 	"description": "Side image with text. Image slides in.",
-	"textdomain": "the-ceards",
+	"textdomain": "the-cedars",
 	"attributes": {
 		"image": {
 			"type": "integer"
