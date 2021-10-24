@@ -10,6 +10,8 @@ import * as hero from './hero-image';
 import * as pageContainer from './page-container';
 import * as contactForm from './contact-form';
 import * as button from './button';
+import * as notice from './notice';
+import * as noticeBanner from './notice-banner';
 
 /**
  * Editor Scss.
@@ -34,6 +36,13 @@ const registerBlock = ( block ) => {
 /**
  * Add the imported folders here into this array.
  */
-const blockRegistration = [ hero, pageContainer, contactForm, button ];
+const blockRegistration = [
+	hero,
+	pageContainer,
+	contactForm,
+	button,
+	notice,
+	noticeBanner,
+];
 
 blockRegistration.forEach( registerBlock );
