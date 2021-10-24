@@ -13,3 +13,6 @@ require_once __DIR__ . '/contained.php';
 
 // Contact Form shortcode.
 require_once __DIR__ . '/contact-form.php';
+
+// Button shortcode.
+require_once __DIR__ . '/button.php';

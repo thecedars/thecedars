@@ -9,6 +9,7 @@ import { registerBlockType } from '@wordpress/blocks';
 import * as hero from './hero-image';
 import * as pageContainer from './page-container';
 import * as contactForm from './contact-form';
+import * as button from './button';
 
 /**
  * Editor Scss.
@@ -33,6 +34,6 @@ const registerBlock = ( block ) => {
 /**
  * Add the imported folders here into this array.
  */
-const blockRegistration = [ hero, pageContainer, contactForm ];
+const blockRegistration = [ hero, pageContainer, contactForm, button ];
 
 blockRegistration.forEach( registerBlock );
