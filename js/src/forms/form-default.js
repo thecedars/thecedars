@@ -8,6 +8,12 @@ export default function FormLayout() {
 	return (
 		<div>
 			<div className="overflow-hidden">
+				<Field
+					id="inquiry"
+					type="select"
+					options={ [ '', 'General', 'Title Company', 'Directory' ] }
+				/>
+
 				<Field id="yourName" />
 
 				<div className="flex-l nl2 nr2">

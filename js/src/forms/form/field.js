@@ -13,6 +13,7 @@ export function Field( {
 	rows = 1,
 	options,
 	WhenValid = Fragment,
+	type: propType,
 } ) {
 	const [ error, setError ] = useState();
 	const {
@@ -28,12 +29,16 @@ export function Field( {
 	const label = schema.properties[ id ]?.title;
 	let type;
 
-	switch ( schema.properties[ id ]?.type ) {
-		case 'number':
-			type = 'number';
-			break;
-		default:
-			type = rows === 1 ? 'text' : 'textarea';
+	if ( propType ) {
+		type = propType;
+	} else {
+		switch ( schema.properties[ id ]?.type ) {
+			case 'number':
+				type = 'number';
+				break;
+			default:
+				type = rows === 1 ? 'text' : 'textarea';
+		}
 	}
 
 	/**

@@ -238,6 +238,7 @@ add_filter( 'cedars_form_preprocess', 'cedars_form_field_validation', 10, 3 );
 function cedars_form_field_error_message( $message, $key, $data ) {
 	switch ( $key ) {
 		case '/yourName':
+		case '/inquiry':
 		case '/firstName':
 		case '/lastName':
 		case '/zipcode':
