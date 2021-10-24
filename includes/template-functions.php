@@ -51,6 +51,20 @@ function cedars_add_overflow_x_bodyclass( $classes ) {
 add_filter( 'body_class', 'cedars_add_overflow_x_bodyclass' );
 
 /**
+ * Adds background color to the body tag.
+ *
+ * @param string[] $classes Class name array.
+ * @return string[]
+ */
+function cedars_add_bgcolor_bodyclass( $classes ) {
+	$classes[] = 'bg-washed-green';
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'cedars_add_bgcolor_bodyclass' );
+
+/**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 function cedars_pingback_header() {
