@@ -133,11 +133,15 @@ export default function HeroImageEdit( { attributes, setAttributes } ) {
 						</div>
 					</div>
 					<div className="w-40-l overflow-hidden br4 shadow-1 h5 h-auto-l animate__animated animate__slideInRight">
-						<img
-							src={ image }
-							className="object-cover w-100 h-100 db"
-							alt={ title }
-						/>
+						{ image ? (
+							<img
+								src={ image }
+								className="object-cover w-100 h-100 db"
+								alt={ title }
+							/>
+						) : (
+							<div className="bg-gray aspect-ratio aspect-ratio--9x16 db" />
+						) }
 					</div>
 				</div>
 			</div>
