@@ -31,6 +31,7 @@ const excludes = [
 	'sass',
 	'webpack.config.js',
 	'yarn.lock',
+	'plugins',
 	path.join( 'js', 'src' ),
 ];
 
