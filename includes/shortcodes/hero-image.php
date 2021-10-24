@@ -21,7 +21,7 @@ function cedars_shortcode_hero_image( $atts, $contents = '' ) {
 	ob_start();
 	?>
 
-	<div class="flex items-center mv<?php echo esc_attr( $margin ); ?> pv0-l">
+	<div class="flex items-center mv<?php echo esc_attr( $margin ); ?>">
 		<div class="flex-l items-center-l">
 			<div class="w-60-l pr4-l mb4 mb0-l">
 				<div class="ttu tracked"><?php echo esc_html( get_bloginfo( 'title' ) ); ?> <span rol="img" aria-label="Picture of a tree.">🌲</span></div>
