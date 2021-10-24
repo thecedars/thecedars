@@ -24,13 +24,14 @@ function cedars_scripts() {
 	}
 
 	$data = array(
-		'siteUrl'     => get_site_url( null ),
-		'siteTitle'   => get_bloginfo( 'title' ),
-		'siteLogo'    => null,
-		'templateUri' => get_template_directory_uri(),
-		'pageWidth'   => cedars_page_width__(),
-		'input'       => cedars_input__(),
-		'button'      => cedars_button__(),
+		'siteUrl'        => get_site_url( null ),
+		'siteTitle'      => get_bloginfo( 'title' ),
+		'siteLogo'       => null,
+		'templateUri'    => get_template_directory_uri(),
+		'pageWidth'      => cedars_page_width__(),
+		'input'          => cedars_input__(),
+		'button'         => cedars_button__(),
+		'buttonInverted' => cedars_button__( true ),
 	);
 
 	if ( get_theme_mod( 'custom_logo' ) ) {
@@ -87,11 +88,12 @@ function cedars_register_block_metadata() {
 	}
 
 	$data = array(
-		'siteUrl'     => get_site_url( null ),
-		'templateUri' => get_template_directory_uri(),
-		'pageWidth'   => cedars_page_width__(),
-		'input'       => cedars_input__(),
-		'button'      => cedars_button__(),
+		'siteUrl'        => get_site_url( null ),
+		'templateUri'    => get_template_directory_uri(),
+		'pageWidth'      => cedars_page_width__(),
+		'input'          => cedars_input__(),
+		'button'         => cedars_button__(),
+		'buttonInverted' => cedars_button__( true ),
 	);
 
 	cedars_add_js_data( 'the-cedars-blocks', $data );

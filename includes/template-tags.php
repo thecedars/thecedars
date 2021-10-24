@@ -111,9 +111,11 @@ function cedars_page_width() {
 
 /**
  * Button classes.
+ *
+ * @param boolean $inverted Optional. When true, use the inverted classes.
  */
-function cedars_button() {
-	echo esc_attr( cedars_button__() );
+function cedars_button( $inverted = false ) {
+	echo esc_attr( cedars_button__( $inverted ) );
 }
 
 /**

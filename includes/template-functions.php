@@ -17,10 +17,15 @@ function cedars_page_width__() {
 /**
  * Button classes.
  *
+ * @param boolean $inverted Optional. When true, use the second classes.
  * @return string
  */
-function cedars_button__() {
-	$classes = 'dib bg-animate pointer no-underline br2 pv2 ph4 white bg-primary bn hover-bg-secondary';
+function cedars_button__( $inverted = false ) {
+	$classes = 'dib bg-animate pointer no-underline br-pill pv3 ph5 bn white bg-primary hover-bg-secondary';
+
+	if ( $inverted ) {
+		$classes = 'dib bg-animate pointer no-underline br-pill pv3 ph5 bn primary bg-white hover-bg-near-white link hover-secondary';
+	}
 
 	return apply_filters( 'cedars_button', $classes );
 }
