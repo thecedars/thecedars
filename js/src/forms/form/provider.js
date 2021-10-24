@@ -163,7 +163,7 @@ function FormProvider( { children, formName = 'default' } ) {
 						</div>
 					) }
 					{ success && (
-						<div className="f3 fw7 green">{ success }</div>
+						<div className="f3 fw7 green mb3">{ success }</div>
 					) }
 				</div>
 				{ !! schema.$id && children }
