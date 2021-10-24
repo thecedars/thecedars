@@ -51,7 +51,8 @@
 		"ajv-formats": "^2.1.1",
 		"animate.css": "^4.1.1",
 		"sass": "^1.35.2",
-		"tachyons-sass": "^4.9.5"
+		"tachyons-sass": "^4.9.5",
+		"webfontloader": "^1.6.28"
 	},
 	"prettier": "@wordpress/prettier-config"
 }
