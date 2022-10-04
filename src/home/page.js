@@ -83,7 +83,7 @@ export default function Home() {
 								>
 									<div className="fw7 f4 white">Budget</div>
 									<div className="f5 moon-gray">
-										Proposed 2022
+										Proposed 2023
 									</div>
 								</a>
 							</div>
