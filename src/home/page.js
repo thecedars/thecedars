@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { GiWoodenSign, GiReceiveMoney, GiTrashCan } from 'react-icons/gi';
-import { NavLink } from 'react-router-dom';
 import Button from './../app/button';
 
 export default function Home() {
@@ -67,19 +66,19 @@ export default function Home() {
 						<div>
 							<div className="w-50 center mw3 mb4">
 								<div className="br-100 bg-near-white aspect-ratio aspect-ratio--1x1 lh-solid">
-									<NavLink
-										to="/budget-2022"
+									<a
+										href="/resources/budget-2023.pdf"
 										className="flex items-center justify-center aspect-ratio--object "
 									>
 										<span className="db primary">
 											<GiReceiveMoney size="2em" />
 										</span>
-									</NavLink>
+									</a>
 								</div>
 							</div>
 							<div className="tc">
 								<a
-									href="/wp-content/uploads/2021/10/2022-proposal.pdf"
+									href="/resources/budget-2023.pdf"
 									className="no-underline"
 								>
 									<div className="fw7 f4 white">Budget</div>
@@ -105,10 +104,13 @@ export default function Home() {
 							<div className="tc">
 								<span className="no-underline">
 									<div className="fw7 f4 white">
-										Fall Yard Sale
+										Annual Meeting
 									</div>
-									<div className="f5 moon-gray">
-										Sept 9-10
+									<div
+										className="f5 moon-gray"
+										title="(Foundary Church)"
+									>
+										Nov 3rd, 7:00pm
 									</div>
 								</span>
 							</div>
