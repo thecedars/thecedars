@@ -1,0 +1,35 @@
+{
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"react-app",
+		"prettier"
+	],
+	"globals": {
+		"process": true
+	},
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"ecmaFeatures": { "modules": true },
+		"sourceType": "module"
+	},
+	"plugins": ["react", "react-hooks", "prettier"],
+	"rules": {
+		"prettier/prettier": ["error"],
+		"no-unused-vars": [
+			"error",
+			{
+				"varsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"no-throw-literal": "off",
+		"yoda": ["error", "always", { "onlyEquality": true }],
+		"react/react-in-jsx-scope": "error"
+	}
+}

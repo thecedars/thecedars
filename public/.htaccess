@@ -1,0 +1,11 @@
+
+<Files ~ "^.*\.([Ee][Nn][Vv])">
+	order allow,deny
+	deny from all
+	satisfy all
+</Files>
+
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]

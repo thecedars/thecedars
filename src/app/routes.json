@@ -1,0 +1,47 @@
+[
+	{
+		"path": "/",
+		"component": "Home"
+	},
+	{
+		"path": "/welcome-new-residents",
+		"component": "Welcome",
+		"title": "New Residents"
+	},
+	{
+		"path": "/info",
+		"component": "Info",
+		"title": "Information",
+		"children": [
+			{
+				"path": "/contact-us",
+				"component": "Contact",
+				"title": "Title Company Inquiries"
+			},
+			{
+				"path": "/info",
+				"component": "Info",
+				"title": "Trash And Recycling",
+				"hash": "trash"
+			},
+			{
+				"path": "/budget-2022",
+				"component": "Budget",
+				"title": "Budget (2022)"
+			},
+			{
+				"path": "/officers",
+				"component": "Officers",
+				"title": "Officers"
+			},
+			{ "path": "/street-map", "component": "Map", "title": "Street Map" },
+			{
+				"path": "/useful-links",
+				"component": "Links",
+				"title": "City Links"
+			}
+		]
+	},
+	{ "path": "/meetings", "component": "Meetings", "title": "Meetings" },
+	{ "path": "/contact-us", "component": "Contact", "title": "General Contact" }
+]
