@@ -61,6 +61,18 @@ function MenuItem({ item }) {
 	const [hover, setHover] = useState(false);
 	const [opened, setOpen] = useState(false);
 
+	const isAnchor = 0 === item.path.indexOf('http');
+
+	let Tag = NavLink;
+	const NavProps = {};
+
+	if (isAnchor) {
+		Tag = 'a';
+		NavProps.href = item.path;
+	} else {
+		NavProps.to = item.path;
+	}
+
 	return (
 		<div
 			className="relative z-1"
@@ -68,15 +80,15 @@ function MenuItem({ item }) {
 			onMouseLeave={() => setHover(false)}
 		>
 			<div className="flex items-center">
-				<NavLink
-					to={item.path}
+				<Tag
+					{...NavProps}
 					className="db-l dn no-underline pv2 pv4-l ph3-l color-inherit"
 				>
 					<span className="db">{item.title}</span>
-				</NavLink>
+				</Tag>
 
-				<NavLink
-					to={item.path}
+				<Tag
+					{...NavProps}
 					className="dn-l db no-underline pv2 pv4-l ph3-l color-inherit"
 					onClick={(evt) => {
 						if (!opened && item.children?.length > 0) {
@@ -86,7 +98,7 @@ function MenuItem({ item }) {
 					}}
 				>
 					<span className="db">{item.title}</span>
-				</NavLink>
+				</Tag>
 			</div>
 
 			{!!item.children && opened && (
@@ -130,11 +142,14 @@ function Child({ item }) {
 	let TagComponent = 'a';
 	const TagProps = {};
 
-	if (!item.path.includes('#')) {
+	const isAnchor = 0 === item.path.indexOf('http') || item.path.includes('#');
+
+	if (isAnchor) {
+		TagComponent = 'a';
+		TagProps.href = item.path;
+	} else {
 		TagComponent = NavLink;
 		TagProps.to = item.path;
-	} else {
-		TagProps.href = item.path;
 	}
 
 	return (
