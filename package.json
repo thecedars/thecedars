@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "main": "index.js",
-  "packageManager": "yarn@3.2.0",
+  "packageManager": "yarn@3.2.4",
   "dependencies": {
     "animate.css": "^4.1.1",
     "prop-types": "^15.8.1",
