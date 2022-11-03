@@ -94,15 +94,21 @@ export default function Home() {
 						<div>
 							<div className="w-50 center mw3 mb4">
 								<div className="br-100 bg-near-white aspect-ratio aspect-ratio--1x1 lh-solid">
-									<span className="flex items-center justify-center aspect-ratio--object ">
+									<a
+										href="/annual-meeting"
+										className="flex items-center justify-center aspect-ratio--object "
+									>
 										<span className="db primary">
 											<GiWoodenSign size="2em" />
 										</span>
-									</span>
+									</a>
 								</div>
 							</div>
 							<div className="tc">
-								<span className="no-underline">
+								<a
+									href="/annual-meeting"
+									className="no-underline"
+								>
 									<div className="fw7 f4 white">
 										Annual Meeting
 									</div>
@@ -112,7 +118,7 @@ export default function Home() {
 									>
 										Nov 3rd, 7:00pm
 									</div>
-								</span>
+								</a>
 							</div>
 						</div>
 					</div>
