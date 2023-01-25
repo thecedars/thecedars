@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
-export default function Button(props) {
+export default function Button({ inverted, ...props }) {
 	let Tagname = 'button';
 	let className = 'dib bg-animate pointer no-underline br-pill pv3 ph5 bn';
 
@@ -14,7 +14,7 @@ export default function Button(props) {
 		Tagname = NavLink;
 	}
 
-	if (props.inverted) {
+	if (inverted) {
 		className += ' bg-white hover-bg-near-white hover-secondary';
 	} else {
 		className += ' white bg-primary hover-bg-secondary';

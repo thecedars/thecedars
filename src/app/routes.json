@@ -4,6 +4,11 @@
 		"component": "Home"
 	},
 	{
+		"path": "/tree-removal",
+		"component": "TreeRemoval",
+		"title": "Tree Removal"
+	},
+	{
 		"path": "/welcome-new-residents",
 		"component": "Welcome",
 		"title": "New Residents"
