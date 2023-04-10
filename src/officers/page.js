@@ -9,7 +9,7 @@ export default function Officers() {
 		<Page title="Officers">
 			<>
 				<p>
-					The 2021 Board of Directors consists of the following
+					The 2023 Board of Directors consists of the following
 					members.&nbsp;
 					<a href="/contact-us">
 						Please contact any Board Member with any questions or

@@ -4,9 +4,9 @@
 		"component": "Home"
 	},
 	{
-		"path": "/tree-removal",
-		"component": "TreeRemoval",
-		"title": "Tree Removal"
+		"path": "/tree-replacement-program",
+		"component": "TreeReplacementProgram",
+		"title": "Tree Replacement"
 	},
 	{
 		"path": "/welcome-new-residents",
@@ -39,7 +39,11 @@
 				"component": "Officers",
 				"title": "Officers"
 			},
-			{ "path": "/street-map", "component": "Map", "title": "Street Map" },
+			{
+				"path": "/street-map",
+				"component": "Map",
+				"title": "Street Map"
+			},
 			{
 				"path": "/useful-links",
 				"component": "Links",
@@ -48,5 +52,9 @@
 		]
 	},
 	{ "path": "/meetings", "component": "Meetings", "title": "Meetings" },
-	{ "path": "/contact-us", "component": "Contact", "title": "General Contact" }
+	{
+		"path": "/contact-us",
+		"component": "Contact",
+		"title": "General Contact"
+	}
 ]

@@ -82,9 +82,7 @@ export default function Home() {
 									className="no-underline"
 								>
 									<div className="fw7 f4 white">Budget</div>
-									<div className="f5 moon-gray">
-										Proposed 2023
-									</div>
+									<div className="f5 moon-gray">2023</div>
 								</a>
 							</div>
 						</div>
