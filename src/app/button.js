@@ -15,7 +15,7 @@ export default function Button({ inverted, ...props }) {
 	}
 
 	if (inverted) {
-		className += ' bg-white hover-bg-near-white hover-secondary';
+		className += ' green bg-white hover-bg-near-white hover-secondary';
 	} else {
 		className += ' white bg-primary hover-bg-secondary';
 	}
