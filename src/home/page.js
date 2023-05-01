@@ -93,7 +93,7 @@ export default function Home() {
 							<div className="w-50 center mw3 mb4">
 								<div className="br-100 bg-near-white aspect-ratio aspect-ratio--1x1 lh-solid">
 									<a
-										href="/annual-meeting"
+										href="#sale"
 										className="flex items-center justify-center aspect-ratio--object "
 									>
 										<span className="db primary">
@@ -103,18 +103,12 @@ export default function Home() {
 								</div>
 							</div>
 							<div className="tc">
-								<a
-									href="/annual-meeting"
-									className="no-underline"
-								>
+								<a href="#sale" className="no-underline">
 									<div className="fw7 f4 white">
-										Annual Meeting
+										Spring Yardsale
 									</div>
-									<div
-										className="f5 moon-gray"
-										title="(Foundary Church)"
-									>
-										Nov 3rd, 7:00pm
+									<div className="f5 moon-gray">
+										May 19-20
 									</div>
 								</a>
 							</div>
