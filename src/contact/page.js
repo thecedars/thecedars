@@ -14,6 +14,11 @@ export default function ContactUS() {
 
 			<p>Fill in the form below to send us an email.</p>
 
+			<p className="fw7">
+				ATTN TITLE COMPANIES: Please provide the address of the
+				property, seller's name, and buyer's name.
+			</p>
+
 			<Form />
 		</Page>
 	);
