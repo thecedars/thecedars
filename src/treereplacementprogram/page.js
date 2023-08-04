@@ -89,6 +89,7 @@ export default function TreeReplacementProgram() {
 								href="https://www.lenexa.com/government/departments___divisions/parks___recreation/trees/emerald_ash_borer"
 								target="_blank"
 								className="url"
+								rel="noreferrer noopener"
 							>
 								https://www.lenexa.com/government/departments___divisions/parks___recreation/trees/emerald_ash_borer
 							</a>
@@ -250,6 +251,7 @@ export default function TreeReplacementProgram() {
 								href="mailto:ctalken@lenexa.com"
 								target="_blank"
 								className="url"
+								rel="noreferrer"
 							>
 								ctalken@lenexa.com
 							</a>

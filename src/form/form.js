@@ -7,29 +7,12 @@ import Button from '../app/button';
 import Field from './field';
 import loadRecaptcha from './recaptcha';
 
-function FormLayout({ fields }) {
-	return (
-		<>
-			{fields.map((field) => (
-				<Field {...{ field }} key={field.id} />
-			))}
-
-			<div className="ph2 white flex justify-center w-100">
-				<Button type="submit">Send Message</Button>
-			</div>
-		</>
-	);
-}
-
-FormLayout.propTypes = {
-	fields: PropTypes.array.isRequired,
-};
-
-export default function Form({ fields }) {
+export default function Form() {
 	const methods = useForm();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState();
+	const [inquiry, setInquiry] = useState();
 
 	const onSubmit = async (data) => {
 		setLoading(true);
@@ -66,6 +49,11 @@ export default function Form({ fields }) {
 		setLoading(false);
 	};
 
+	function detectInquiry(event) {
+		const target = event.currentTarget;
+		setInquiry(target.value);
+	}
+
 	return (
 		<FormProvider {...methods}>
 			<form
@@ -73,7 +61,55 @@ export default function Form({ fields }) {
 				className="the-cedars-form"
 			>
 				<div className="flex nl2 nr2 flex-wrap">
-					<FormLayout {...{ fields }} />
+					<Field
+						id="inquiry"
+						label="Inquiry"
+						required
+						weight="1"
+						errormsg="Inquiry required"
+						kind="select"
+						options="|General|Title Company|Directory"
+						onInput={detectInquiry}
+					/>
+
+					{'Title Company' === inquiry && (
+						<>
+							<Field
+								required
+								id="address"
+								label="Address of Property"
+								weight="1"
+							/>
+							<Field
+								required
+								id="seller"
+								label="Seller's Name"
+								weight="1"
+							/>
+							<Field
+								required
+								id="buyer"
+								label="Buyer's Name"
+								weight="1"
+							/>
+						</>
+					)}
+
+					<Field
+						id="name"
+						kind="email"
+						label="Email"
+						required
+						weight="2"
+						errormsg="Email required"
+					/>
+
+					<Field id="phone" kind="tel" label="Phone" weight="2" />
+					<Field id="message" kind="textarea" label="Message" />
+
+					<div className="ph2 white flex justify-center w-100">
+						<Button type="submit">Send Message</Button>
+					</div>
 				</div>
 				{loading && <>&hellip;</>}
 				{error && (

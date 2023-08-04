@@ -1,22 +1,20 @@
 import React from 'react';
 
-import { PropTypes } from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 
-export default function Field({ field }) {
+export default function Field({
+	id,
+	label,
+	weight,
+	kind = 'text',
+	pattern,
+	patternmod,
+	errormsg,
+	required,
+	options: selectOptions,
+	onInput = () => {},
+}) {
 	const input = 'db w-100 f5 ba pa2 border-box bg-transparent b--moon-gray';
-
-	const {
-		id,
-		label,
-		weight,
-		kind,
-		pattern,
-		patternmod,
-		errormsg,
-		required,
-		options: selectOptions,
-	} = field;
 
 	const {
 		register,
@@ -46,6 +44,7 @@ export default function Field({ field }) {
 	const TagProps = {
 		...register(id, options),
 		className: input,
+		onInput,
 	};
 
 	if ('textarea' === kind) {
@@ -80,7 +79,3 @@ export default function Field({ field }) {
 		</div>
 	);
 }
-
-Field.propTypes = {
-	field: PropTypes.object.isRequired,
-};

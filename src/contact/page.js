@@ -2,7 +2,6 @@ import React from 'react';
 
 import Page from '../app/page';
 import Form from '../form';
-import fields from './fields.json';
 
 export default function ContactUS() {
 	return (
@@ -15,7 +14,7 @@ export default function ContactUS() {
 
 			<p>Fill in the form below to send us an email.</p>
 
-			<Form {...{ fields }} />
+			<Form />
 		</Page>
 	);
 }
