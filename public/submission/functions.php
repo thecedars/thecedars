@@ -46,3 +46,12 @@ function recaptcha_v3_secret() {
 function form_mail_to() {
 	return getenv( 'FORM_TO' );
 }
+
+/**
+ * Title Inquiry Email.
+ *
+ * @return string
+ */
+function form_mail_title_inquiry() {
+	return getenv( 'TITLE_INQUIRY' );
+}

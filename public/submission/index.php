@@ -47,13 +47,31 @@ foreach ( $data as $field => $value ) {
 
 mail(
 	form_mail_to(),
-	'The Cedars - WordPress Submission',
+	'The Cedars - Form Submission',
 	$message,
 	array(
-		'From'     => 'wordpress@the-cedars.org',
+		'From'     => 'website@the-cedars.org',
 		'Reply-to' => $data['email'],
 	)
 );
+
+$title_inquiry = form_mail_title_inquiry();
+
+if (
+	!empty($title_inquiry) &&
+	!empty($data['inquiry']) &&
+	$data['inquiry'] === 'Title Company'
+) {
+	mail(
+		$title_inquiry,
+		'The Cedars - Title Inquiry',
+		$message,
+		array(
+			'From'     => 'website@the-cedars.org',
+			'Reply-to' => $data['email'],
+		)
+	);
+}
 
 echo json_encode( array( 'data' => $data ) );
 
