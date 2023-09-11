@@ -105,10 +105,10 @@ export default function Home() {
 							<div className="tc">
 								<a href="#sale" className="no-underline">
 									<div className="fw7 f4 white">
-										Spring Yardsale
+										Fall Yardsale
 									</div>
 									<div className="f5 moon-gray">
-										May 19-20
+										Sept 15-16
 									</div>
 								</a>
 							</div>
