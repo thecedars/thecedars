@@ -11,13 +11,13 @@ svg {
 		@apply pb-4;
 	}
 
-	.main a {
+	.interior a {
 		@apply underline;
 	}
 }
 
 @layer components {
-	.main a {
+	.interior a {
 		@apply text-blue-600;
 	}
 }
