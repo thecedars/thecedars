@@ -104,7 +104,7 @@
 		<Field required name="buyer" label="Buyer's Name" />
 	{/if}
 
-	<Field name="name" type="email" label="Email" required />
+	<Field name="email" type="email" label="Email" required />
 	<Field name="phone" type="tel" label="Phone" />
 	<Field name="message" type="textarea" label="Message" />
 
