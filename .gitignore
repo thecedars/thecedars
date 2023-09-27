@@ -1,25 +1,10 @@
-# dependencies
-**/node_modules
-**/.yarn/*
-!**/.yarn/patches
-!**/.yarn/plugins
-!**/.yarn/releases
-!**/.yarn/sdks
-!**/.yarn/versions
-
-# production
-/build
-
-# misc
-/.cache
 .DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# misc ext
-/*.log
-/*.zip
-/*.csv
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

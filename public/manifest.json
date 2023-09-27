@@ -3,18 +3,18 @@
   "name": "The Cedars",
   "icons": [
     {
-      "src": "32.png",
+      "src": "32.jpg",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/jpg"
     },
     {
-      "src": "192.png",
-      "type": "image/png",
+      "src": "192.jpg",
+      "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "270.png",
-      "type": "image/png",
+      "src": "270.jpg",
+      "type": "image/jpg",
       "sizes": "270x270"
     }
   ],
