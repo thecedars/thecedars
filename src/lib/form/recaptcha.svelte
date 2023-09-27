@@ -14,14 +14,16 @@
 
 	onMount(() => {
 		script.onload = () => {
-			window.grecaptcha.execute(key, { action }).then(
-				(token) => {
-					dispatch('load', { token });
-				},
-				() => {
-					dispatch('error');
-				}
-			);
+			setTimeout(() => {
+				window.grecaptcha.execute(key, { action }).then(
+					(token) => {
+						dispatch('load', { token });
+					},
+					() => {
+						dispatch('error');
+					}
+				);
+			}, 100);
 		};
 	});
 </script>
