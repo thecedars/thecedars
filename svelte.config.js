@@ -15,9 +15,8 @@ const config = {
 			strict: true
 		}),
 		prerender: {
-			handleHttpError: () => {
-				return 'warn';
-			}
+			handleHttpError: () => 'warn',
+			handleMissingId: () => 'warn'
 		}
 	},
 	preprocess: vitePreprocess()

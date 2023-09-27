@@ -8,7 +8,6 @@
 
 	function toggleMenu() {
 		menuOpened = !menuOpened;
-		console.log(menuOpened);
 	}
 </script>
 

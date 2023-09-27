@@ -13,8 +13,6 @@
 	 * @type {string[]}
 	 */
 	export let options = [];
-
-	$: console.log(elementProps);
 </script>
 
 {#if options.length}
