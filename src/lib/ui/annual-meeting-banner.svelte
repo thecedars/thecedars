@@ -75,6 +75,8 @@
 				31, {NEXTYEAR}.
 			</div>
 
+			<Field class="mb-4" name="email" required label="Email" />
+
 			<div class="mb-4 flex items-center">
 				<div class="mx-2 shrink-0">Type your full name:</div>
 				<Field class="mx-2" name="fullName" />
