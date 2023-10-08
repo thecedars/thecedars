@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { PUBLIC_ALT_FORM_URL } from '$env/static/public';
 
 	import { SUBMIT } from '$lib/ui/button';
 	import Button from '$lib/ui/button.svelte';
@@ -51,7 +52,7 @@
 		let response;
 
 		try {
-			response = await fetch('/submission/index.php', {
+			response = await fetch(PUBLIC_ALT_FORM_URL + '/submission/index.php', {
 				method: 'POST',
 				body: JSON.stringify(data),
 				headers: { 'content-type': 'application/json' }
@@ -88,25 +89,27 @@
 />
 
 <form on:submit|preventDefault={submit} bind:this={form} class="the-cedars-form">
-	<Field
-		label="Inquiry"
-		type="select"
-		options={['', 'General', 'Title Company', 'Directory']}
-		required
-		name="inquiry"
-		value={inquiry}
-		on:input={onInquiryChange}
-	/>
+	<slot>
+		<Field
+			label="Inquiry"
+			type="select"
+			options={['', 'General', 'Title Company', 'Directory']}
+			required
+			name="inquiry"
+			value={inquiry}
+			on:input={onInquiryChange}
+		/>
 
-	{#if 'Title Company' === inquiry}
-		<Field required name="address" label="Address of Property" />
-		<Field required name="seller" label="Seller's Name" />
-		<Field required name="buyer" label="Buyer's Name" />
-	{/if}
+		{#if 'Title Company' === inquiry}
+			<Field required name="address" label="Address of Property" />
+			<Field required name="seller" label="Seller's Name" />
+			<Field required name="buyer" label="Buyer's Name" />
+		{/if}
 
-	<Field name="email" type="email" label="Email" required />
-	<Field name="phone" type="tel" label="Phone" />
-	<Field name="message" type="textarea" label="Message" />
+		<Field name="email" type="email" label="Email" required />
+		<Field name="phone" type="tel" label="Phone" />
+		<Field name="message" type="textarea" label="Message" />
+	</slot>
 
 	<div class="py-2 text-white flex justify-center w-full">
 		<Button type={SUBMIT}>Send Message</Button>
