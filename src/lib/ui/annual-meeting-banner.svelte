@@ -34,9 +34,15 @@
 		<h1 class="text-center text-3xl mb-2">{YEAR} Proxy Statement</h1>
 		<h2 class="text-center text-lg mb-4">Fill Out the Form Below</h2>
 		<Form>
+			<input name="subject" type="hidden" value="{YEAR} Proxy Statement" />
 			<div class="flex items-center -mx-2">
 				<label for="authorizeOther" class="cursor-pointer mx-2 shrink-0">
-					<input type="radio" id="authorizeOther" name="authorize" value="Authorize 'authorizeOtherName' to Cast my Ballot" />
+					<input
+						type="radio"
+						id="authorizeOther"
+						name="authorize"
+						value="Authorize 'authorizeOtherName' to Cast my Ballot"
+					/>
 					I authorize
 				</label>
 				<Field name="authorizeOtherName" class="mx-2" />
@@ -51,7 +57,12 @@
 
 			<div class="mb-4">
 				<label for="authorizeSecretary" class="cursor-pointer">
-					<input type="radio" name="authorize" id="authorizeSecretary" value="Authorize Secretary to Cast my Ballot" />
+					<input
+						type="radio"
+						name="authorize"
+						id="authorizeSecretary"
+						value="Authorize Secretary to Cast my Ballot"
+					/>
 					I authorize the Secretary of the Board of Directors of the Cedars Homes Association to cast
 					my ballot for all votes requiring resident decision at the annual meeting.
 				</label>

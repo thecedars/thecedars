@@ -59,6 +59,11 @@ mail(
 	)
 );
 
+$subject = 'The Cedars - Title Inquiry';
+if ( !empty($data['subject']) ) {
+	$subject = $data['subject'];
+}
+
 $title_inquiry = form_mail_title_inquiry();
 
 if (
@@ -68,7 +73,7 @@ if (
 ) {
 	mail(
 		$title_inquiry,
-		'The Cedars - Title Inquiry',
+		$subject,
 		$message,
 		array(
 			'From'     => 'website@the-cedars.org',
