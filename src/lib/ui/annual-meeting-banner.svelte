@@ -36,7 +36,7 @@
 		<Form>
 			<div class="flex items-center -mx-2">
 				<label for="authorizeOther" class="cursor-pointer mx-2 shrink-0">
-					<input type="radio" id="authorizeOther" name="authorize" value="authorizeOther" />
+					<input type="radio" id="authorizeOther" name="authorize" value="Authorize 'authorizeOtherName' to Cast my Ballot" />
 					I authorize
 				</label>
 				<Field name="authorizeOtherName" class="mx-2" />
@@ -51,7 +51,7 @@
 
 			<div class="mb-4">
 				<label for="authorizeSecretary" class="cursor-pointer">
-					<input type="radio" name="authorize" id="authorizeSecretary" value="authorizeSecretary" />
+					<input type="radio" name="authorize" id="authorizeSecretary" value="Authorize Secretary to Cast my Ballot" />
 					I authorize the Secretary of the Board of Directors of the Cedars Homes Association to cast
 					my ballot for all votes requiring resident decision at the annual meeting.
 				</label>
@@ -65,7 +65,7 @@
 
 			<div class="flex items-center -mx-2">
 				<div class="shrink-0 mx-2">I nominate</div>
-				<Field class="mx-2" name="nominate" />
+				<Field class="mx-2" name="nominee" />
 				<div class="mx-2 shrink-0">residing at</div>
 				<Field class="mx-2" name="nomineeAddress" />
 			</div>
@@ -79,7 +79,7 @@
 
 			<div class="mb-4 flex items-center">
 				<div class="mx-2 shrink-0">Type your full name:</div>
-				<Field class="mx-2" name="fullName" />
+				<Field class="mx-2" required name="residentFullName" />
 				<div class="mx-2 shrink-0">Date:</div>
 				<Field class="mx-2" name="date" type="date" value={DATE} />
 			</div>
