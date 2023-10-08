@@ -2,6 +2,8 @@ on:
   push:
     branches: [main]
 name: 🚀 Deploy website on push
+env:
+  PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.PUBLIC_RECAPTCHA_SITE_KEY }}
 jobs:
   web-deploy:
     name: 🎉 Deploy
