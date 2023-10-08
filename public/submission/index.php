@@ -6,6 +6,10 @@ require_once __DIR__ . '/class-dot-env.php';
 $env_file = __DIR__ . '/../.env';
 (new DotEnv($env_file))->load();
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: OPTIONS, GET, PATCH, PUT, POST, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, Origin");
+
 $json = file_get_contents( 'php://input' );
 $data;
 
