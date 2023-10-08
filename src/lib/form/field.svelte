@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import Element from './element.svelte';
 
 	/**
@@ -27,15 +29,21 @@
 	/**
 	 * @type {{class:string, name: string, id:string, type?:string, required: boolean, value?:string}}
 	 */
-	const elementProps = { class: inputClass, name, id, required, value };
+	let elementProps = { class: inputClass, name, id, required, value };
 
 	if (type === 'textarea') {
 		element = 'textarea';
 	} else if (type === 'select') {
 		element = 'select';
 	} else {
-		elementProps.type = type;
+		if (elementProps) elementProps.type = type;
 	}
+
+	onMount(()=>{
+		if (value) {
+			elementProps = {...elementProps, value };
+		}
+	});
 
 	export { className as class };
 </script>
