@@ -12,7 +12,7 @@ $data;
 try {
 	$data = json_decode( $json, true );
 } catch ( Exception $e ) {
-	// ignroe errors.
+	// noop.
 }
 
 if ( empty( $data ) ) {
