@@ -49,15 +49,18 @@ foreach ($data as $field => $value) {
 	$message .= $field . ":\n" . $value . "\n\n";
 }
 
-mail(form_mail_to(), 'The Cedars - Form Submission', $message, [
+$subject = 'The Cedars - Form Submission';
+
+if (!empty($data['subject'])) {
+	$subject = $data['subject'];
+}
+
+mail(form_mail_to(), $subject, $message, [
 	'From' => 'website@the-cedars.org',
 	'Reply-to' => $data['email'],
 ]);
 
 $subject = 'The Cedars - Title Inquiry';
-if (!empty($data['subject'])) {
-	$subject = $data['subject'];
-}
 
 $title_inquiry = form_mail_title_inquiry();
 
