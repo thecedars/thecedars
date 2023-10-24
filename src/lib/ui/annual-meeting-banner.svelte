@@ -87,6 +87,7 @@
 			</div>
 
 			<Field class="mb-4" name="email" required label="Email" />
+			<Field class="mb-4" name="address" required label="Your Street Address" />
 
 			<div class="mb-4 flex items-center">
 				<div class="mx-2 shrink-0">Type your full name:</div>
