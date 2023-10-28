@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -27,11 +27,7 @@
 		}, 2);
 	});
 
-	/**
-	 * @param {MouseEvent | KeyboardEvent} event
-	 * @listens MouseEvent | KeyboardEvent
-	 */
-	function close(event) {
+	function close(event: MouseEvent | KeyboardEvent) {
 		dispatch('close', event);
 	}
 

@@ -1,11 +1,8 @@
-<script>
+<script lang="ts">
 	import { MENU_ITEM } from '$lib/context/symbols.js';
 	import { getContext, setContext } from 'svelte';
 
-	/**
-	 * @type {string}
-	 */
-	export let href;
+	export let href: string;
 	let hover = false;
 	let opened = false;
 
@@ -17,11 +14,7 @@
 		? 'px-2 lg:py-6 lg:px-4'
 		: 'transition-colors duration-500 no-underline p-2 lg:pr-8 block color-inherit bg-white hover:bg-washed-green w-full';
 
-	/**
-	 * @param {MouseEvent} event
-	 * @listens MouseEvent
-	 */
-	function toggleOpen(event) {
+	function toggleOpen(event: MouseEvent) {
 		if (!opened && $$slots.children) {
 			event.preventDefault();
 		}

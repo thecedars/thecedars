@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Trash from '~icons/mdi/delete-empty';
 	import Cash from '~icons/mdi/cash';
 	import Sign from '~icons/mdi/sign-text';

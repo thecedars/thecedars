@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Hamburger from '~icons/mdi/menu';
 
 	import AnnualMeetingBanner from './annual-meeting-banner.svelte';

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import { PUBLIC_ALT_FORM_URL } from '$env/static/public';
 
@@ -7,10 +7,7 @@
 	import Field from './field.svelte';
 	import Recaptcha from './recaptcha.svelte';
 
-	/**
-	 * @type {HTMLFormElement}
-	 */
-	let form;
+	let form: HTMLFormElement;
 	let token = '';
 	let loading = false;
 	let error = '';
@@ -18,11 +15,7 @@
 	export let inquiry = '';
 	const dispatch = createEventDispatcher();
 
-	/**
-	 * @param {Event} event
-	 * @listens Event
-	 */
-	function onInquiryChange(event) {
+	function onInquiryChange(event: Event) {
 		if (
 			event.currentTarget instanceof HTMLInputElement ||
 			event.currentTarget instanceof HTMLSelectElement

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Field from '$lib/form/field.svelte';
 	import Form from '$lib/form/form.svelte';
 	import Lightbox from './lightbox.svelte';

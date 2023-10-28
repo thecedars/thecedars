@@ -1,23 +1,12 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 
 	import Element from './element.svelte';
+	import type { ElementProps } from './field';
 
-	/**
-	 * @type {string}
-	 */
-	export let name;
-
-	/**
-	 * @type {string[]}
-	 */
-	export let options = [];
-
-	/**
-	 * @type {string|undefined}
-	 */
-	export let value = undefined;
-
+	export let name: string;
+	export let options: string[] = [];
+	export let value: string | undefined = undefined;
 	export let type = 'text';
 	export let label = '';
 	export let required = false;
@@ -26,10 +15,7 @@
 	let element = 'input';
 	const id = 'id-' + name;
 	const inputClass = 'block w-full text-base border p-2 box-border bg-transparent border-gray-300';
-	/**
-	 * @type {{class:string, name: string, id:string, type?:string, required: boolean, value?:string}}
-	 */
-	let elementProps = { class: inputClass, name, id, required, value };
+	let elementProps: ElementProps = { class: inputClass, name, id, required, value };
 
 	if (type === 'textarea') {
 		element = 'textarea';
@@ -39,9 +25,9 @@
 		if (elementProps) elementProps.type = type;
 	}
 
-	onMount(()=>{
+	onMount(() => {
 		if (value) {
-			elementProps = {...elementProps, value };
+			elementProps = { ...elementProps, value };
 		}
 	});
 

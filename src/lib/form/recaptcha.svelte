@@ -1,11 +1,8 @@
-<script>
+<script lang="ts">
 	import { PUBLIC_RECAPTCHA_SITE_KEY } from '$env/static/public';
 	import { createEventDispatcher, onMount } from 'svelte';
 
-	/**
-	 * @type {HTMLScriptElement}
-	 */
-	let script;
+	let script: HTMLScriptElement;
 	export let action = 'leadform';
 	const dispatch = createEventDispatcher();
 	const key = PUBLIC_RECAPTCHA_SITE_KEY;

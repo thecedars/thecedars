@@ -1,18 +1,7 @@
-<script>
-	/**
-	 * @type {string}
-	 */
-	export let element;
-
-	/**
-	 * @type {any}
-	 */
-	export let elementProps;
-
-	/**
-	 * @type {string[]}
-	 */
-	export let options = [];
+<script lang="ts">
+	export let element: string;
+	export let elementProps: any;
+	export let options: string[] = [];
 </script>
 
 {#if options.length}

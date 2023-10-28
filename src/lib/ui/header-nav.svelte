@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import HeaderMenu from './header-menu.svelte';
 </script>
 

@@ -1,10 +1,7 @@
-<script>
-	import { SUBMIT } from './button';
+<script lang="ts">
+	import { SUBMIT } from './button.js';
 
-	/**
-	 * @type {null|symbol}
-	 */
-	export let type = null;
+	export let type: null | symbol = null;
 	export let inverted = false;
 	export let href = '';
 	const classes = [

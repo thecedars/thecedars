@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import Footer from '$lib/ui/footer.svelte';
 	import Header from '$lib/ui/header.svelte';
 
-	import '../app.css';
+	import './layout.css';
 </script>
 
 <div
