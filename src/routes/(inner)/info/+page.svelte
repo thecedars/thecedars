@@ -19,7 +19,7 @@
 </p>
 <h2 class="text-2xl font-bold">{YEAR} Budget</h2>
 
-<p><a href="/budget-2022">Click here to view the detailed budget.</a></p>
+<p><a href="/resources/budget-2024.pdf">Click here to view the detailed budget.</a></p>
 <h2 id="trash" class="text-2xl">The Cedars – Trash and Recycling</h2>
 
 <img src="/images/kc-disposal.jpg" alt="" class="block" />

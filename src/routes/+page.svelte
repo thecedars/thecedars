@@ -54,7 +54,7 @@
 					<div class="w-50 mx-auto max-w-[4rem] mb-8">
 						<div class="rounded-full bg-gray-100 aspect-square leading-normal">
 							<a
-								href="/resources/budget-2023.pdf"
+								href="/resources/budget-2024.pdf"
 								class="flex items-center justify-center h-full"
 							>
 								<span class="block text-green">
@@ -64,9 +64,9 @@
 						</div>
 					</div>
 					<div class="text-center">
-						<a href="/resources/budget-2023.pdf" class="no-underline">
+						<a href="/resources/budget-2024.pdf" class="no-underline">
 							<div class="font-bold text-xl text-white">Budget</div>
-							<div class="text-base text-gray-400">2023</div>
+							<div class="text-base text-gray-400">2024</div>
 						</a>
 					</div>
 				</div>
