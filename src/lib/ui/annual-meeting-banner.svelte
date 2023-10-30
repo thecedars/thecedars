@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Field from '$lib/form/field.svelte';
 	import Form from '$lib/form/form.svelte';
-	import Lightbox from './lightbox.svelte';
+	import Button from '$lib/ui/button.svelte';
+	import Lightbox from '$lib/ui/lightbox.svelte';
 
 	let opened = false;
 	const now = new Date();
@@ -11,6 +12,16 @@
 	const DAY = ('0' + now.getDate()).slice(-2);
 
 	const DATE = `${YEAR}-${MONTH}-${DAY}`;
+
+	const body = document.body;
+
+	$: {
+		if (opened) {
+			body.classList.add('h-screen');
+		} else {
+			body.classList.remove('h-screen');
+		}
+	}
 
 	function openToggle() {
 		opened = !opened;
@@ -35,7 +46,7 @@
 		<h2 class="text-center text-lg mb-4">Fill Out the Form Below</h2>
 		<Form>
 			<input name="subject" type="hidden" value="{YEAR} Proxy Statement" />
-			<div class="flex items-center -mx-2">
+			<div class="md:flex items-center -mx-2">
 				<label for="authorizeOther" class="cursor-pointer mx-2 shrink-0">
 					<input
 						type="radio"
@@ -74,7 +85,7 @@
 				the nomination.
 			</div>
 
-			<div class="flex items-center -mx-2">
+			<div class="md:flex items-center -mx-2">
 				<div class="shrink-0 mx-2">I nominate</div>
 				<Field class="mx-2" name="nominee" />
 				<div class="mx-2 shrink-0">residing at</div>
@@ -89,11 +100,15 @@
 			<Field class="mb-4" name="email" required label="Email" />
 			<Field class="mb-4" name="address" required label="Your Street Address" />
 
-			<div class="mb-4 flex items-center">
+			<div class="mb-4 md:flex items-center">
 				<div class="mx-2 shrink-0">Type your full name:</div>
 				<Field class="mx-2" required name="residentFullName" />
 				<div class="mx-2 shrink-0">Date:</div>
 				<Field class="mx-2" name="date" type="date" value={DATE} />
+			</div>
+
+			<div class="py-2 text-white flex justify-center w-full">
+				<Button inverted on:click={() => (opened = false)}>Close</Button>
 			</div>
 		</Form>
 	</Lightbox>

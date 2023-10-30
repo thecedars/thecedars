@@ -23,7 +23,7 @@
 </script>
 
 {#if type === SUBMIT}
-	<button type="submit" class={classes.join(' ')}><slot /></button>
+	<button type="submit" class={classes.join(' ')} on:click|preventDefault><slot /></button>
 {:else}
-	<a {href} class={classes.join(' ')}><slot /></a>
+	<a {href} class={classes.join(' ')} on:click><slot /></a>
 {/if}

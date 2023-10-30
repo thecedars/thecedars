@@ -108,6 +108,8 @@
 		<Button type={SUBMIT}>Send Message</Button>
 	</div>
 
+	<div class="h-20 md:hidden sm:block" />
+
 	{#if loading}&hellip;{/if}
 
 	{#if error}
