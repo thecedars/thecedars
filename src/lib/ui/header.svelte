@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Hamburger from '~icons/mdi/menu';
 
-	import AnnualMeetingBanner from './annual-meeting-banner.svelte';
 	import HeaderNav from './header-nav.svelte';
 	import Logo from './logo.svelte';
 
@@ -43,5 +42,3 @@
 		</div>
 	</div>
 </header>
-
-<AnnualMeetingBanner />
