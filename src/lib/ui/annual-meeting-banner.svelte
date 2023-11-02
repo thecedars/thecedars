@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import Field from '$lib/form/field.svelte';
 	import Form from '$lib/form/form.svelte';
 	import Button from '$lib/ui/button.svelte';
@@ -13,12 +14,15 @@
 
 	const DATE = `${YEAR}-${MONTH}-${DAY}`;
 
-	const body = document.body;
+	let body: HTMLElement;
+	if (browser) {
+		body = document.body;
+	}
 
 	$: {
-		if (opened) {
+		if (opened && body) {
 			body.classList.add('h-screen');
-		} else {
+		} else if (body) {
 			body.classList.remove('h-screen');
 		}
 	}
