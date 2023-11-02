@@ -21,9 +21,9 @@
 
 	$: {
 		if (opened && body) {
-			body.classList.add('h-screen');
+			body.classList.add('h-screen', 'overflow-hidden');
 		} else if (body) {
-			body.classList.remove('h-screen');
+			body.classList.remove('h-screen', 'overflow-hidden');
 		}
 	}
 
