@@ -1,7 +1,22 @@
 <script lang="ts">
 	import Title from '$lib/ui/title.svelte';
+	import Card from './card.svelte';
+	import { meetings } from './config';
 
 	const YEAR = new Date().getFullYear();
+	let anchor: HTMLElement & { href: string };
+
+	function openmap(address: string, full?: boolean) {
+		if (!full) {
+			address += ', Lenexa, KS 66215';
+		}
+
+		const url = new URL('https://maps.google.com');
+		url.searchParams.set('q', address);
+
+		anchor.href = url.toString();
+		anchor.click();
+	}
 </script>
 
 <Title>Meetings</Title>
@@ -13,40 +28,15 @@
 	. You will find a map to the location of the meeting by clicking on the meeting location below.
 </p>
 
-<h2>{YEAR} Meeting Schedule</h2>
+<h2 class="font-bold pb-4">{YEAR} Meeting Schedule</h2>
 
-<h4>Monday Feb 6</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+	{#each meetings as meeting}
+		<Card on:click={() => openmap(meeting.address, meeting.fulladdress)}>
+			<h4>{meeting.date}</h4>
+			<div>{meeting.name}</div>
+		</Card>
+	{/each}
+</div>
 
-<p>Dwight McQuade</p>
-
-<h4>Monday Mar 6</h4>
-
-<p>Judy Martin</p>
-
-<h4>Monday Apr 3</h4>
-
-<p>Mark Weber</p>
-
-<h4>Monday May 1</h4>
-
-<p>Mark McPherson</p>
-
-<h4>Monday Aug 7</h4>
-
-<p>Monty Tranbarger</p>
-
-<h4>Monday Sep 11</h4>
-
-<p>Rob Metcalf</p>
-
-<h4>Monday Oct 2</h4>
-
-<p>Mark Weber</p>
-
-<h4>Thursday Nov 2</h4>
-
-<p>Annual Meeting</p>
-
-<h4>Monday Dec 4</h4>
-
-<p>Jon Shipman</p>
+<a href="#noop" target="_map" bind:this={anchor} class="sr-only">&nbsp;</a>
