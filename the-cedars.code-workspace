@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "mailer"
+    },
+    {
+      "path": "web"
+    },
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "mailer": true,
+      "web": true
+    }
+  }
+}
