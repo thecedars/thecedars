@@ -2,6 +2,8 @@
 	import Form from '$lib/elements/form.svelte';
 </script>
 
-<div class="mx-auto max-w-2xl">
-	<Form />
-</div>
+<Form />
+
+<svelte:head>
+	<title>Email Tool</title>
+</svelte:head>

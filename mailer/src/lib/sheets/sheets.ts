@@ -35,6 +35,17 @@ class SheetClass {
 
 		return rows.map((row) => row.toObject());
 	}
+
+	async loadByTitle(title: string, sheetId = this.defaultSheetId) {
+		if (!this.serviceAccount) this.authenticate();
+
+		const doc = new GoogleSpreadsheet(sheetId, this.serviceAccount!);
+		await doc.loadInfo();
+		const sheet = doc.sheetsByTitle[title];
+		const rows = await sheet.getRows();
+
+		return rows.map((row) => row.toObject());
+	}
 }
 
 const Sheets = new SheetClass({ auth: GOOGLE_AUTH, defaultSheetId: SHEETID });
