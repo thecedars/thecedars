@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Cancel from '$lib/elements/cancel.svelte';
-	import Input from '$lib/elements/input.svelte';
-	import Radio from '$lib/elements/radio.svelte';
-	import Submit from '$lib/elements/submit.svelte';
-	import Textarea from '$lib/elements/textarea.svelte';
-	import Upload from '$lib/elements/upload.svelte';
-	import type { Resident, Residents } from '$lib/residents/residents';
-	import { toBase64 } from '$lib/utils/to-base64';
+	import type { Resident, Residents } from '$lib/residents';
+	import { toBase64 } from '$lib/utils';
 	import { onMount } from 'svelte';
+	import Cancel from './cancel.svelte';
+	import Input from './input.svelte';
+	import Radio from './radio.svelte';
+	import Submit from './submit.svelte';
+	import Textarea from './textarea.svelte';
+	import Upload from './upload.svelte';
 
 	let showTextEmailField = true;
 
@@ -84,10 +84,9 @@
 
 	async function getResidents() {
 		try {
-			const response = await fetch('/api/sheet', {
+			const results = await fetch('/api/sheet', {
 				headers: { 'Content-Type': 'application/json' }
-			});
-			const results = await response.json();
+			}).then((r) => r.json());
 			if (results) residents = results.filter((row: Resident) => row.Email);
 		} catch (e) {
 			console.error(e);

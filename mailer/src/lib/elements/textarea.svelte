@@ -18,7 +18,7 @@
 	let className = 'contents';
 
 	$: value = targetValue || propValue;
-	$: markdownHtml = markdown && marked.parse(value);
+	$: markdownHtml = markdown && (marked.parse(value) as string);
 
 	function onChange(event: Event & { currentTarget: EventTarget & HTMLTextAreaElement }) {
 		dispatch('input', event);

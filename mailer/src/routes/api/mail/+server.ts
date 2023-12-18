@@ -1,15 +1,15 @@
-import { mail } from '$lib/utils/mail.js';
+import { Mail } from '$lib/mail';
 import { error, json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
 	const { html, to, subject, attachment } = await request.json();
 
-	if (!html) throw error(400, 'No html provided.');
-	if (!to) throw error(400, 'No to provided.');
-	if (!subject) throw error(400, 'No subject provided.');
+	if (!html) error(400, 'No html provided.');
+	if (!to) error(400, 'No to provided.');
+	if (!subject) error(400, 'No subject provided.');
 
 	try {
-		await mail({
+		await Mail.send({
 			html,
 			to: !Array.isArray(to) ? [to] : to,
 			subject,
@@ -17,7 +17,7 @@ export async function POST({ request }) {
 		});
 	} catch (e) {
 		if (e instanceof Error) {
-			throw error(400, e.message);
+			error(400, e.message);
 		}
 	}
 
