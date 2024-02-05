@@ -4,9 +4,6 @@ declare global {
 			execute: (s: string, x: { action: string }) => Promise<string>;
 		};
 	}
-
-	interface Element {
-		validity: { valid: boolean };
-		reportValidity: () => void;
-	}
 }
+
+export {};

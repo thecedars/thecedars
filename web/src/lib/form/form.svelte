@@ -33,7 +33,10 @@
 		const data = Object.fromEntries(formdata);
 		data.gToken = token;
 
-		const invalid = [...form.elements].filter((element) => !element.validity.valid);
+		const formElements = [...form.elements] as unknown[] as Array<
+			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+		>;
+		const invalid = formElements.filter((element) => !element.validity.valid);
 
 		if (invalid.length) {
 			invalid.forEach((element) => element.reportValidity());
