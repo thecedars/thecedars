@@ -94,8 +94,8 @@
 					</div>
 					<div class="text-center" id="sale">
 						<a href="#sale" class="no-underline">
-							<div class="font-bold text-xl text-white">Fall Yardsale</div>
-							<div class="text-base text-gray-400">Sept 15-16</div>
+							<div class="font-bold text-xl text-white">Spring '04 Yardsale</div>
+							<div class="text-base text-gray-400">May 17-18</div>
 						</a>
 					</div>
 				</div>
