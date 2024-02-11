@@ -21,9 +21,9 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20.x'
-    - run: npm --prefix web ci
-    - run: npm --prefix web run build
+        node-version: '21.x'
+    - run: npm -w=web web ci
+    - run: npm -w=web run build
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
