@@ -9,13 +9,38 @@
 	import Textarea from './textarea.svelte';
 	import Upload from './upload.svelte';
 
-	let showTextEmailField = true;
+	interface DuesCheckedItem {
+		StreetName: string;
+		City: string;
+		State: string;
+		Zip: string;
+		LastName: string;
+		ListingName: string;
+		Phone: string;
+		Children: string;
+		Email: string;
+		Notes: string;
+		Number: string;
+		BillingAddress: string;
+		BillingPhone: string;
+		BillingEmail: string;
+		Flag_Print: string;
+		Flag_OptionalBilling: string;
+		Flag_HideEmail: string;
+		'Check Date': string;
+		'Check No.': string;
+		'Date Deposited': string;
+	}
 
+	const DUES_PAID_ID = '1UMSFmFLy3iTSCda7CtHgT8uxUK1BoOEo0iGRJp0k-TM';
+
+	let showTextEmailField = true;
 	let form: HTMLFormElement | undefined;
 	let goodMessage = '';
 	let badMessage = '';
 	let loading = false;
 	let residents: Residents = [];
+	let notPaid: DuesCheckedItem[] = [];
 
 	function handleToChange(event: Event) {
 		const target = event && 'currentTarget' in event ? event.currentTarget : null;
@@ -44,10 +69,26 @@
 					return a[0].trim();
 				}
 
-				return resident.Email;
+				return resident.Email.trim();
 			});
+		} else if (data.whoto === 'Not Paid') {
+			const notPaidAddresses = notPaid.map((n) => n.Number + n.StreetName);
+
+			data.to = residents
+				.filter((resident) => {
+					const check = resident.StreetNumber + resident.StreetName;
+					return notPaidAddresses.includes(check);
+				})
+				.map((resident) => {
+					if (resident.Email.includes(',')) {
+						const a = resident.Email.split(',');
+						return a[0].trim();
+					}
+
+					return resident.Email.trim();
+				});
 		}
-		console.log(data);
+
 		return data;
 	}
 
@@ -82,15 +123,34 @@
 		}
 	}
 
-	async function getResidents() {
+	async function getResidents(): Promise<Resident[] | null> {
 		try {
 			const results = await fetch('/api/sheet', {
 				headers: { 'Content-Type': 'application/json' }
 			}).then((r) => r.json());
-			if (results) residents = results.filter((row: Resident) => row.Email);
+
+			return results.filter((row: Resident) => row.Email);
 		} catch (e) {
 			console.error(e);
 		}
+
+		return null;
+	}
+
+	async function getNotPaid(): Promise<DuesCheckedItem[] | null> {
+		try {
+			const results = await fetch('/api/sheet?sheetId=' + DUES_PAID_ID, {
+				headers: { 'Content-Type': 'application/json' }
+			}).then((r) => r.json());
+
+			return results.filter((row: DuesCheckedItem) => {
+				return !row['Check Date'];
+			});
+		} catch (e) {
+			console.error(e);
+		}
+
+		return null;
 	}
 
 	function resetForm() {
@@ -106,7 +166,13 @@
 	}
 
 	onMount(() => {
-		getResidents();
+		getResidents().then((r) => {
+			if (r) residents = r;
+		});
+
+		getNotPaid().then((r) => {
+			if (r) notPaid = r;
+		});
 	});
 </script>
 
@@ -154,7 +220,7 @@
 					<Radio
 						name="whoto"
 						defaultValue="Test"
-						options={['Everyone', 'Test']}
+						options={['Everyone', 'Not Paid', 'Test']}
 						label="To"
 						on:change={handleToChange}
 					/>
