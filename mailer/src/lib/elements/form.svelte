@@ -109,7 +109,8 @@
 
 			if (result?.success) {
 				goodMessage = 'Success!';
-				form?.reset();
+
+				if (data.whoto !== 'Test') form?.reset();
 			} else {
 				badMessage = 'Ooops';
 			}
