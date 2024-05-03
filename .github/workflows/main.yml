@@ -34,4 +34,6 @@ jobs:
         local-dir: ./
         server-dir: application/
         exclude: |
-          node_modules/*
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
