@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"postbuild": "cpx ./.env ./build",
+		"start": "node build",
 		"zip": "pwsh.exe -Command \"Set-Location -Path .\\build ; Compress-Archive -Path .\\* -Force -DestinationPath ..\\build.zip\"",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -21,7 +21,6 @@
 		"@typescript-eslint/eslint-plugin": "^7.8.0",
 		"@typescript-eslint/parser": "^7.8.0",
 		"autoprefixer": "^10.4.19",
-		"cpx": "^1.5.0",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.38.0",
