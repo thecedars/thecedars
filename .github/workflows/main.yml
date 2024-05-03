@@ -32,6 +32,4 @@ jobs:
         username: ${{ vars.FTP_USER }}
         password: ${{ secrets.FTP_PASS }}
         local-dir: ./web/build/
-        server-dir: public_html/
-        exclude: |
-          .env
+        server-dir: application/
