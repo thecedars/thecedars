@@ -1,19 +1,20 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	import { PUBLIC_ALT_FORM_URL } from '$env/static/public';
-
+	import { applyAction, enhance } from '$app/forms';
 	import { SUBMIT } from '$lib/ui/button';
 	import Button from '$lib/ui/button.svelte';
+	import type { SubmitFunction } from '@sveltejs/kit';
 	import Field from './field.svelte';
 	import Recaptcha from './recaptcha.svelte';
+	import { page } from '$app/stores';
 
-	let form: HTMLFormElement;
 	let token = '';
 	let loading = false;
 	let error = '';
 	let success = '';
 	export let inquiry = '';
-	const dispatch = createEventDispatcher();
+
+	$: error = $page.form?.error || '';
+	$: success = $page.form?.success || '';
 
 	function onInquiryChange(event: Event) {
 		if (
@@ -24,58 +25,19 @@
 		}
 	}
 
-	async function submit() {
+	const submit: SubmitFunction = async function () {
 		loading = true;
 		success = '';
 		error = '';
 
-		const formdata = new FormData(form);
-		const data = Object.fromEntries(formdata);
-		data.gToken = token;
-
-		const formElements = [...form.elements] as unknown[] as Array<
-			HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-		>;
-		const invalid = formElements.filter((element) => !element.validity.valid);
-
-		if (invalid.length) {
-			invalid.forEach((element) => element.reportValidity());
-			loading = false;
-			error = 'Please fill out missing data';
-			return;
-		}
-
-		let response;
-
-		try {
-			response = await fetch(PUBLIC_ALT_FORM_URL + '/submission/index.php', {
-				method: 'POST',
-				body: JSON.stringify(data),
-				headers: { 'content-type': 'application/json' }
-			});
-
-			if (response.ok) {
-				response = await response.json();
-
-				if (response?.data) {
-					error = '';
-					success = 'The form was sent successfully.';
-
-					form.reset();
-					dispatch('submit', { data });
-				}
-			}
-		} catch (e) {
-			if (e instanceof Error) {
-				error = e.message;
-			}
-
-			success = '';
-			dispatch('error', { error: e });
-		} finally {
-			loading = false;
-		}
-	}
+		return ({ update, result }) => {
+			return update()
+				.then(() => applyAction(result))
+				.finally(() => {
+					loading = false;
+				});
+		};
+	};
 </script>
 
 <Recaptcha
@@ -84,7 +46,7 @@
 	}}
 />
 
-<form on:submit|preventDefault={submit} bind:this={form} class="the-cedars-form">
+<form action="/contact-us/" use:enhance={submit} method="POST" class="the-cedars-form">
 	<slot>
 		<Field
 			label="Inquiry"
@@ -104,11 +66,11 @@
 
 		<Field name="email" type="email" label="Email" required />
 		<Field name="phone" type="tel" label="Phone" />
-		<Field name="message" type="textarea" label="Message" />
+		<Field name="message" type="textarea" label="Message" required />
 	</slot>
 
 	<div class="py-2 text-white flex justify-center w-full">
-		<Button type={SUBMIT}>Send Message</Button>
+		<Button type={SUBMIT} disabled={loading}>Send Message</Button>
 	</div>
 
 	<div class="h-20 md:hidden sm:block" />
