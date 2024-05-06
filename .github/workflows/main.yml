@@ -43,3 +43,17 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+
+      - name: Restart File Creation
+        run: |
+          mkdir -p /tmp/r
+          head /dev/urandom | tr -dc A-Za-z0-9 | fold -w 16 | head -n 1 > /tmp/r/restart.txt
+
+      - name: Send restart file
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ vars.FTP_SERV }}
+          username: ${{ vars.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: /tmp/r/
+          server-dir: application/tmp/
