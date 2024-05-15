@@ -1,5 +1,6 @@
 import { SMTP_FROM, SMTP_HOST, SMTP_PASS, SMTP_PORT, SMTP_USER } from '$lib/config.server';
 import nodemailer from 'nodemailer';
+import type IMail from 'nodemailer/lib/mailer';
 import type { MailOptions } from 'nodemailer/lib/sendmail-transport';
 
 interface MailClassOptions {
@@ -8,6 +9,10 @@ interface MailClassOptions {
 	pass: string;
 	port: string;
 	user: string;
+}
+
+function isFile(file: FormDataEntryValue): file is File {
+	return file instanceof File;
 }
 
 class MailClass {
@@ -25,7 +30,12 @@ class MailClass {
 		this.user = options.user;
 	}
 
-	async send(options: { html: string; to: string[]; subject: string; attachments?: string[] }) {
+	async send(options: {
+		html: string;
+		to: string[];
+		subject: string;
+		attachments?: FormDataEntryValue[];
+	}) {
 		const { html, to, subject, attachments } = options;
 
 		if (!SMTP_HOST) throw new Error('mail is missing process.env.' + SMTP_HOST);
@@ -59,7 +69,20 @@ class MailClass {
 					subject: subject ?? 'Cedars HOA Email Tool'
 				};
 
-				if (attachments) settings.attachments = attachments.map((a) => ({ path: a }));
+				if (attachments?.length) {
+					const mailAttachments: IMail.Attachment[] = [];
+					for (const attachment of attachments) {
+						if (isFile(attachment)) {
+							mailAttachments.push({
+								filename: attachment.name,
+								content: Buffer.from(await attachment.arrayBuffer())
+							});
+						}
+					}
+
+					if (mailAttachments.length) settings.attachments = mailAttachments;
+				}
+
 				await transporter.sendMail(settings);
 			} catch (e) {
 				const error = typeof e === 'object' ? e : {};

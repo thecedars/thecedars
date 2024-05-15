@@ -2,18 +2,21 @@ import { Mail } from '$lib/mail';
 import { error, json } from '@sveltejs/kit';
 
 export async function POST({ request }) {
-	const { html, to, subject, attachment } = await request.json();
+	const formdata = await request.formData();
+	const html = formdata.get('html');
+	const to = formdata.getAll('to');
+	const subject = formdata.get('subject');
 
 	if (!html) error(400, 'No html provided.');
-	if (!to) error(400, 'No to provided.');
+	if (!to?.length) error(400, 'No to provided.');
 	if (!subject) error(400, 'No subject provided.');
 
 	try {
 		await Mail.send({
-			html,
-			to: !Array.isArray(to) ? [to] : to,
-			subject,
-			attachments: attachment ? [attachment] : undefined
+			html: html + '',
+			to: !Array.isArray(to) ? [to + ''] : to.map((t) => t + ''),
+			subject: subject + '',
+			attachments: formdata.getAll('attachment')
 		});
 	} catch (e) {
 		if (e instanceof Error) {

@@ -49,60 +49,50 @@
 		showTextEmailField = value === 'Test';
 	}
 
-	async function getValues() {
-		const formdata = new FormData(form);
-		const dataFromEntries = Object.fromEntries(formdata);
-		const data: Record<string, string | string[]> = {};
-		for (const entry in dataFromEntries) {
-			const value = dataFromEntries[entry];
-			if (value instanceof File) {
-				data[entry] = await toBase64(value);
-			} else {
-				data[entry] = value.toString();
-			}
-		}
+	async function getValues(formdata: FormData) {
+		const whoto = formdata.get('whoto') + '';
 
-		if (data.whoto === 'Everyone') {
-			data.to = residents.map((resident) => {
+		if (whoto === 'Everyone') {
+			residents.forEach((resident) => {
 				if (resident.Email.includes(',')) {
 					const a = resident.Email.split(',');
-					return a[0].trim();
+					formdata.append('to', a[0].trim());
 				}
 
-				return resident.Email.trim();
+				formdata.append('to', resident.Email.trim());
 			});
-		} else if (data.whoto === 'Not Paid') {
+		} else if (whoto === 'Not Paid') {
 			const notPaidAddresses = notPaid.map((n) => n.Number + n.StreetName);
 
-			data.to = residents
+			residents
 				.filter((resident) => {
 					const check = resident.StreetNumber + resident.StreetName;
 					return notPaidAddresses.includes(check);
 				})
-				.map((resident) => {
+				.forEach((resident) => {
 					if (resident.Email.includes(',')) {
 						const a = resident.Email.split(',');
-						return a[0].trim();
+						formdata.append('to', a[0].trim());
 					}
 
-					return resident.Email.trim();
+					formdata.append('to', resident.Email.trim());
 				});
 		}
 
-		return data;
+		return formdata;
 	}
 
-	async function send() {
+	async function send(form: HTMLFormElement) {
 		loading = true;
 		goodMessage = '';
 		badMessage = '';
-		const data = await getValues();
+		const data = await getValues(new FormData(form));
+		const whoto = data.get('whoto') + '';
 
 		try {
 			const response = await fetch('/api/mail', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(data)
+				body: data
 			});
 
 			const result = await response.json();
@@ -110,7 +100,7 @@
 			if (result?.success) {
 				goodMessage = 'Success!';
 
-				if (data.whoto !== 'Test') form?.reset();
+				if (whoto !== 'Test') form?.reset();
 			} else {
 				badMessage = 'Ooops';
 			}
@@ -154,7 +144,7 @@
 		return null;
 	}
 
-	function resetForm() {
+	function resetForm(form: HTMLFormElement) {
 		goodMessage = '';
 		badMessage = '';
 		form?.reset();
@@ -200,7 +190,7 @@
 	</div>
 {/if}
 
-<form bind:this={form} on:submit|preventDefault={send}>
+<form on:submit|preventDefault={(e) => send(e.currentTarget)}>
 	<div class="space-y-12">
 		<div class="border-b border-gray-900/10 pb-12">
 			<h2 class="text-base font-semibold leading-7 text-gray-900">Email Tool</h2>
@@ -255,7 +245,17 @@
 			</span>
 		{/if}
 
-		<Cancel on:click={resetForm}>Cancel</Cancel>
+		<Cancel
+			on:click={(e) => [
+				e.preventDefault(),
+				e?.currentTarget &&
+					'form' in e.currentTarget &&
+					e.currentTarget.form instanceof HTMLFormElement &&
+					resetForm(e.currentTarget.form)
+			]}
+		>
+			Cancel
+		</Cancel>
 		{#if loading}
 			<div
 				class="animate-spin inline-block w-5 h-5 border-[3px] border-current border-t-transparent text-gray-400 rounded-full"

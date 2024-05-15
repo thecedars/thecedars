@@ -1,6 +1,4 @@
 import {
-	MAILGUN_API_KEY,
-	MAILGUN_DOMAIN,
 	SMTP_HOST,
 	SMTP_USER,
 	SMTP_PASS,
@@ -27,13 +25,4 @@ export const GOOGLE_AUTH = JSON.parse(googleAuth) as GoogleAuthKey;
 
 export * from './config';
 
-export {
-	MAILGUN_API_KEY,
-	MAILGUN_DOMAIN,
-	SMTP_HOST,
-	SMTP_USER,
-	SMTP_PASS,
-	SMTP_FROM,
-	SMTP_PORT,
-	SHEETID
-};
+export { SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_FROM, SMTP_PORT, SHEETID };
