@@ -72,7 +72,7 @@ class MailClass {
 				if (attachments?.length) {
 					const mailAttachments: IMail.Attachment[] = [];
 					for (const attachment of attachments) {
-						if (isFile(attachment)) {
+						if (isFile(attachment) && attachment.size > 0) {
 							mailAttachments.push({
 								filename: attachment.name,
 								content: Buffer.from(await attachment.arrayBuffer())
