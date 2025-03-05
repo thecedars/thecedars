@@ -10,6 +10,8 @@ export const actions = {
 		const address = getFormDataAsString(data, 'address');
 		const seller = getFormDataAsString(data, 'seller');
 		const buyer = getFormDataAsString(data, 'buyer');
+		const bemail = getFormDataAsString(data, 'buyer-email');
+		const bphone = getFormDataAsString(data, 'buyer-phone');
 		const email = getFormDataAsString(data, 'email');
 		const phone = getFormDataAsString(data, 'phone');
 		const message = getFormDataAsString(data, 'message');
@@ -24,6 +26,8 @@ export const actions = {
 Address: ${address}
 Seller: ${seller}
 Buyer: ${buyer}
+Buyer Email: ${bemail}
+Buyer Phone: ${bphone}
 Email: ${email}
 Phone: ${phone}
 Message: \n\n${message}`;

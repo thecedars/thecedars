@@ -48,25 +48,32 @@
 
 <form action="/contact-us/" use:enhance={submit} method="POST" class="the-cedars-form">
 	<slot>
-		<Field
-			label="Inquiry"
-			type="select"
-			options={['', 'General', 'Title Company', 'Directory']}
-			required
-			name="inquiry"
-			value={inquiry}
-			on:input={onInquiryChange}
-		/>
+		<div class="space-y-4">
+			<Field
+				label="Inquiry"
+				type="select"
+				options={['', 'General', 'Title Company', 'Directory']}
+				required
+				name="inquiry"
+				value={inquiry}
+				on:input={onInquiryChange}
+			/>
 
-		{#if 'Title Company' === inquiry}
-			<Field required name="address" label="Address of Property" />
-			<Field required name="seller" label="Seller's Name" />
-			<Field required name="buyer" label="Buyer's Name" />
-		{/if}
+			{#if 'Title Company' === inquiry}
+				<Field required name="address" label="Address of Property" />
+				<Field required name="seller" label="Seller's Name" />
+				<Field required name="buyer" label="Buyer's Name" />
 
-		<Field name="email" type="email" label="Email" required />
-		<Field name="phone" type="tel" label="Phone" />
-		<Field name="message" type="textarea" label="Message" required />
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<Field required type="email" name="buyer-email" label="Buyer's Email" />
+					<Field required type="tel" name="buyer-phone" label="Buyer's Phone" />
+				</div>
+			{/if}
+
+			<Field name="email" type="email" label="Email" required />
+			<Field name="phone" type="tel" label="Phone" />
+			<Field name="message" type="textarea" label="Message" required />
+		</div>
 	</slot>
 
 	<div class="py-2 text-white flex justify-center w-full">
