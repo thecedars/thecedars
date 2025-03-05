@@ -5,8 +5,19 @@
 	import { fly } from 'svelte/transition';
 
 	let ready = false;
+	const spring = 'May 16-17';
+	const fall = 'Sept 13-14';
+
+	let yardsaledates = spring;
 
 	onMount(() => {
+		const today = new Date();
+		const may18 = new Date(today.getFullYear(), 4, 18);
+
+		if (today > may18) {
+			yardsaledates = fall;
+		}
+
 		ready = true;
 	});
 </script>
@@ -94,8 +105,8 @@
 					</div>
 					<div class="text-center" id="sale">
 						<a href="#sale" class="no-underline">
-							<div class="font-bold text-xl text-white">Spring '04 Yardsale</div>
-							<div class="text-base text-gray-400">May 17-18</div>
+							<div class="font-bold text-xl text-white">Yardsale</div>
+							<div class="text-base text-gray-400">{yardsaledates}</div>
 						</a>
 					</div>
 				</div>
