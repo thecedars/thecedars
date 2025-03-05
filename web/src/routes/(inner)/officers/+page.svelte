@@ -13,23 +13,23 @@
 </p>
 
 <p>
-	Mark McPherson – President
+	President - Mark McPherson
 	<br />
-	Vann Martin – Vice President
+	VP - Vann Martin
 	<br />
-	Rob Metcalf – Treasurer
+	Treasurer - Rob Metcalf
 	<br />
-	Judy Martin – Secretary
+	Secretary - Judy Martin
 	<br />
-	Jon Shipman&nbsp;– Website/Directory
+	Website/Directory - Katherine Curtis
 	<br />
-	Dwight McQuade – Landscaping
+	Landscaping - John Crone
 	<br />
-	Monty Tranbarger – Member
+	Social - Mark Weber
 	<br />
-	Todd Pratt – Member
+	Todd Pratt - Member
 	<br />
-	Mark Weber – Social Chair
+	Monty Tranbarger - Member
 </p>
 
 <p>Be sure to check out the board meeting schedule. All meetings are open to the homeowners.</p>
