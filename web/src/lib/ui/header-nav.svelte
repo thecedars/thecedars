@@ -11,7 +11,7 @@
 		<svelte:fragment slot="children">
 			<HeaderMenu href="/contact-us">Contact Us</HeaderMenu>
 			<HeaderMenu href="/info">Trash and Recycling</HeaderMenu>
-			<HeaderMenu href="https://the-cedars.org/resources/budget-2024.pdf">Budget (2024)</HeaderMenu>
+			<HeaderMenu href="https://the-cedars.org/resources/budget-2025.pdf">Budget (2025)</HeaderMenu>
 			<HeaderMenu href="/officers">Officers</HeaderMenu>
 			<HeaderMenu href="/street-map">Street Map</HeaderMenu>
 			<HeaderMenu href="/useful-links">City Links</HeaderMenu>
