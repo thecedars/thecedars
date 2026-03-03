@@ -5,7 +5,7 @@
 	import { fly } from 'svelte/transition';
 
 	let ready = false;
-	const spring = 'May 16-17';
+	const spring = 'May 15-16';
 	const fall = 'Sept 13-14';
 
 	let yardsaledates = spring;
@@ -76,7 +76,7 @@
 				<div>
 					<div class="w-50 mx-auto max-w-[4rem] mb-8">
 						<div class="rounded-full bg-gray-100 aspect-square leading-normal">
-							<a href="/resources/budget-2025.pdf" class="flex items-center justify-center h-full">
+							<a href="/resources/budget-2026.pdf" class="flex items-center justify-center h-full">
 								<span class="block text-green">
 									<Icon icon="mdi:cash" width="2em" height="2em" />
 								</span>
@@ -84,9 +84,9 @@
 						</div>
 					</div>
 					<div class="text-center">
-						<a href="/resources/budget-2025.pdf" class="no-underline">
+						<a href="/resources/budget-2026.pdf" class="no-underline">
 							<div class="font-bold text-xl text-white">Budget</div>
-							<div class="text-base text-gray-400">2025</div>
+							<div class="text-base text-gray-400">2026</div>
 						</a>
 					</div>
 				</div>

@@ -21,7 +21,7 @@
 	<br />
 	Secretary - Judy Martin
 	<br />
-	Website/Directory - Katherine Curtis
+	Website/Directory - Shane Starr
 	<br />
 	Landscaping - John Crone
 	<br />
